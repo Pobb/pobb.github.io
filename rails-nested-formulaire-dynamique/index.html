@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>Rails & nested_attributes : un formulaire dynamique ?</title>
+
+    <!-- Open Graph Meta -->
+    <meta content="[ Pob's corner ]" property="og:site_name">
+    
+      <meta content="Rails & nested_attributes : un formulaire dynamique ?" property="og:title">
+    
+    
+      <meta content="article" property="og:type">
+    
+    
+      <meta content="Another tech blog" property="og:description">
+    
+    
+      <meta content="https://pobb.github.io/rails-nested-formulaire-dynamique/" property="og:url">
+    
+    
+      <meta content="2014-12-23T00:00:00+01:00" property="article:published_time">
+      <meta content="https://pobb.github.io/about/" property="article:author">
+    
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@poblouin">
+    <meta name="twitter:creator" content="@poblouin">
+    
+      <meta name="twitter:title" content="Rails & nested_attributes : un formulaire dynamique ?">
+    
+    
+      <meta name="twitter:url" content="https://pobb.github.io/rails-nested-formulaire-dynamique/">
+    
+    
+      <meta name="twitter:description" content="Another tech blog">
+    
+    
+      <meta name="twitter:image:src" content="https://pobb.github.io/assets/img/touring.jpg">
+    
+
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico" />
+
+    <!-- Come and get me RSS readers -->
+    <link rel="alternate" type="application/rss+xml" title="[ Pob's corner ]" href="https://pobb.github.io/feed.xml" />
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!--[if IE 8]><link rel="stylesheet" href="/assets/css/ie.css"><![endif]-->
+    
+    <link rel="canonical" href="https://www.sois-net.fr/rails-nested-attributes-un-formulaire-dynamique/"/>
+    
+
+    <!-- Modernizr -->
+    <script src="/assets/js/modernizr.custom.15390.js" type="text/javascript"></script>
+
+    
+</head>
+
+
+<body>
+
+    <div class="header">
+     <div class="container">
+         <h1 class="logo"><a href="/">[ Pob's corner ]</a></h1>
+         <nav class="nav-collapse">
+             <ul class="noList">
+                 
+                 <li class="element first  ">
+                     <a href="/index.html">Home</a>
+                 </li> 
+                 
+                 <li class="element   ">
+                     <a href="/about">About</a>
+                 </li> 
+                 
+                 <li class="element   last">
+                     <a href="/archives">Archives</a>
+                 </li> 
+                 
+             </ul>
+         </nav>
+     </div>
+ </div><!-- end .header -->
+
+
+   <div class="content">
+      <div class="container">
+         <div class="post">
+  
+  <h1 class="postTitle">Rails & nested_attributes : un formulaire dynamique ?</h1>
+  <p class="meta">December 23, 2014 | <span class="time">9</span> Minute Read</p>
+  
+  <p class="intro"><span class="dropcap">D</span>ans le cas d’une application ayant un objet parent qui possède un ou plusieurs objets enfants, il est possible de créer au sein du formulaire parent, les enfants qui lui sont associés.</p>
+
+<p>Nous allons vous présenter une façon d’utiliser les “nested_attributes”, celle-ci n’est pas forcément la meilleure et/ou la plus adaptée. Mais face au manque d’articles et de communication autour des nested, nous avons décidé de partager avec vous cette astuce. N’hésitez pas à nous communiquer vos retours via les commentaires.</p>
+
+<p>Prenons un exemple concret : nous avons un objet “voiture” (model) avec une liaison “has_many” sur l’objet enfant (model) “equipement”.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># app/models/voiture.rb</span>
+<span class="k">class</span> <span class="nc">Voiture</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">has_many</span> <span class="ss">:equipements</span><span class="p">,</span> <span class="ss">dependent: :destroy</span>
+<span class="k">end</span>
+ 
+<span class="c1"># app/models/equipement.rb</span>
+<span class="k">class</span> <span class="nc">Equipement</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">belongs_to</span> <span class="ss">:voiture</span>
+<span class="k">end</span></code></pre></figure>
+
+<p>Jusque ici rien de plus classique que deux objets reliés entre eux. Cependant ce que nous souhaitons est un peu particulier : pouvoir ajouter plusieurs équipements à notre voiture lors de la création d’un nouvel objet “voiture”, le tout via un et un seul formulaire :</p>
+
+<figure>
+  <img src="/assets/img/post-resultat_attendu.png" alt="Résultat attendu : ajouter une voiture + ajouter un ou plusieurs équipements à cette voiture" /> 
+  <figcaption>Fig1. - Résultat attendu : ajouter une voiture + ajouter un ou plusieurs équipements à cette voiture</figcaption>
+</figure>
+
+<h4 id="1--ajout-de-accepts_nested_attributes_for-dans-le-modèle-parenth2">1 – Ajout de “accepts_nested_attributes_for” dans le modèle parent&lt;/h2&gt;</h4>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># app/models/voiture.rb</span>
+<span class="k">class</span> <span class="nc">Voiture</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">has_many</span> <span class="ss">:equipements</span><span class="p">,</span> <span class="ss">dependent: :destroy</span>
+  <span class="n">accepts_nested_attributes_for</span> <span class="ss">:equipements</span><span class="p">,</span> <span class="ss">:reject_if</span> <span class="o">=&gt;</span> <span class="nb">lambda</span> <span class="p">{</span> <span class="o">|</span><span class="n">a</span><span class="o">|</span> <span class="n">a</span><span class="p">[</span><span class="ss">:intitule</span><span class="p">].</span><span class="nf">blank?</span> <span class="p">},</span> <span class="ss">:allow_destroy</span> <span class="o">=&gt;</span> <span class="kp">true</span>
+<span class="k">end</span></code></pre></figure>
+
+<p>On ajoute ici l’option “accepts_nested_attributes_for” qui permet au modèle “voiture” de créer une instance du modèle “equipement” et par la même occasion de le lier au modèle “voiture” qui est appelé. Le “reject_if” agit comme un before_save, ce qui signifie que si la condition n’est pas respectée, l’instance “equipement” ne sera pas sauvegardée (cependant cela ne déclenche pas de message d’erreur). Le “allow_destroy” permet quant à lui au modèle “voiture” de pouvoir supprimer une instance du modèle “equipement”.</p>
+
+<h4 id="2--le-mass-assignment">2 – Le mass-assignment</h4>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># app/controllers/voitures_controller.rb</span>
+<span class="kp">private</span>
+  <span class="c1"># Never trust parameters from the scary internet, only allow the white list through.</span>
+  <span class="k">def</span> <span class="nf">voiture_params</span>
+    <span class="n">params</span><span class="p">.</span><span class="nf">require</span><span class="p">(</span><span class="ss">:voiture</span><span class="p">).</span><span class="nf">permit</span><span class="p">(</span><span class="ss">:marque</span><span class="p">,</span> <span class="ss">:genre</span><span class="p">,</span> <span class="ss">equipements_attributes: </span><span class="no">Equipement</span><span class="p">.</span><span class="nf">attribute_names</span> <span class="o">+</span> <span class="p">[</span><span class="s2">"_destroy"</span><span class="p">])</span>
+  <span class="k">end</span></code></pre></figure>
+
+<p>Plaçons-nous dans le controller parent et ajoutons “equipements_attributes” pour autoriser le mass-assignement (pouvoir setter plusieurs attributs à la fois) et récupérer tous les attributs du modèle “equipement”. A cela nous ajoutons un attribut virtuel supplémentaire “_destroy” qui va nous permettre de supprimer un équipement si sa valeur vaut “true” dans le formulaire.</p>
+
+<h4 id="3--création-dune-instance-vide-equipement-depuis-notre-voiture">3 – Création d’une instance vide “equipement” depuis notre “voiture”</h4>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># app/controllers/voitures_controller.rb</span>
+<span class="k">def</span> <span class="nf">new</span>
+  <span class="vi">@voiture</span> <span class="o">=</span> <span class="no">Voiture</span><span class="p">.</span><span class="nf">new</span>
+  <span class="vi">@voiture</span><span class="p">.</span><span class="nf">equipements</span><span class="p">.</span><span class="nf">build</span>
+<span class="k">end</span></code></pre></figure>
+
+<p>Nous partons du principe que notre voiture possède au moins un équipement. Nous voulons donc afficher dès le chargement du formulaire (new) les champs nécessaires pour l’ajout d’un équipement. Dans l’action “new” nous ajoutons donc “@voiture.equipements.build” afin de construire une première instance vide d’un équipement (qui sera liée à notre voiture).</p>
+
+<h4 id="4--vue--un-partial-pour-les-champs-enfants">4 – Vue : un partial pour les champs enfants</h4>
+<p>Ensuite nous allons ajouter au sein du formulaire “voiture” les champs de l’objet enfant “equipement”. On crée dans un premier temps un “partial” pour y afficher uniquement les champs enfants :</p>
+
+<figure class="highlight"><pre><code class="language-erb" data-lang="erb"># app/views/voitures/_form_equipements.html.erb
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"equipements"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"equipement"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"btn btn-mini remove_equipement"</span><span class="nt">&gt;</span>Supprimer<span class="nt">&lt;/span&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">q</span><span class="p">.</span><span class="nf">hidden_field</span> <span class="ss">:_destroy</span> <span class="cp">%&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"field"</span><span class="nt">&gt;</span>
+      <span class="cp">&lt;%=</span> <span class="n">q</span><span class="p">.</span><span class="nf">label</span> <span class="ss">:intitule</span><span class="p">,</span> <span class="s2">"Equipement &lt;span class='numero-equipement'&gt;</span><span class="si">#{</span><span class="n">js</span> <span class="p">?</span> <span class="s2">"valeur_cherchee2"</span> <span class="p">:</span> <span class="p">(</span><span class="n">q</span><span class="p">.</span><span class="nf">options</span><span class="p">[</span><span class="ss">:child_index</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&lt;/span&gt;"</span><span class="p">.</span><span class="nf">html_safe</span> <span class="cp">%&gt;</span>
+      <span class="cp">&lt;%=</span> <span class="n">q</span><span class="p">.</span><span class="nf">text_field</span> <span class="ss">:intitule</span> <span class="cp">%&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"field"</span><span class="nt">&gt;</span>
+      <span class="cp">&lt;%=</span> <span class="n">q</span><span class="p">.</span><span class="nf">label</span> <span class="ss">:prix</span><span class="p">,</span> <span class="s2">"Prix"</span> <span class="cp">%&gt;</span>
+      <span class="cp">&lt;%=</span> <span class="n">q</span><span class="p">.</span><span class="nf">text_field</span> <span class="ss">:prix</span> <span class="cp">%&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span> </code></pre></figure>
+
+<p>Il existe deux façons d’exécuter ce partial : premièrement lorsque l’on charge les objets “equipements” au sein du formulaire (ex : l’instance buildée pour le new, et les instances présentes en base de données pour l’edit). Le deuxième cas concerne la partie “dynamique” du formulaire qui nous permettra en javascript d’ajouter autant d’equipements souhaités (à ce moment là nous ne connaissons pas le nom et l’id exact des champs ajoutés au DOM dynamiquement).</p>
+
+<p>Décortiquons un peu ce partial. Sur le bouton “supprimer” la classe “remove_equipement” est importante car elle sera réutilisée par la suite dans le code JS. Le champ <strong>”&lt;%= q.hidden_field :_destroy %&gt;”</strong> permet, lorsque sa valeur est à “true” de supprimer l’équipement correspondant (cf code JS plus bas).</p>
+
+<p><strong>“Equipement […] #{js ? “valeur_cherchee2” : (q.options[:child_index] + 1)}”</strong> nous permet d’afficher un numéro pour chaque équipement (ex : equipement 1, equipement 2 etc.), si nous sommes dans le cas d’une exécution ruby simple (variable “js” qui vaut false), nous irons chercher l’index de l’équipement fourni par Rails (“q.options[:child_index]” ceci vient de la méthode f.fields_for que nous verrons par la suite). Dans le cas d’une exécution qui nous permettra l’ajout en JS (variable “js” vaut true) nous écrivons une valeur facilement remplaçable (“valeur_cherchee2”) par le numéro de l’équipement qui sera décidé dynamiquement dans le JS.</p>
+
+<p>Le reste des lignes est un appel standard aux méthodes de rails permettant de créer les inputs du formulaire.</p>
+
+<h4 id="5--vue--modifions-le-formulaire-parent-voitures">5 – Vue : modifions le formulaire parent “voitures”</h4>
+
+<figure class="highlight"><pre><code class="language-erb" data-lang="erb"># app/views/voitures/_form.html.erb
+<span class="cp">&lt;%=</span> <span class="n">form_for</span><span class="p">(</span><span class="vi">@voiture</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">f</span><span class="o">|</span> <span class="cp">%&gt;</span>
+  ...
+  # champs concernant l'objet voiture
+  ...
+  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"bloc-equipements"</span><span class="nt">&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">f</span><span class="p">.</span><span class="nf">fields_for</span> <span class="ss">:equipements</span> <span class="k">do</span> <span class="o">|</span><span class="n">q</span><span class="o">|</span> <span class="cp">%&gt;</span>
+      <span class="cp">&lt;%=</span> <span class="n">render</span> <span class="ss">partial: </span><span class="s2">"form_equipements"</span><span class="p">,</span> <span class="ss">locals: </span><span class="p">{</span> <span class="ss">q: </span><span class="n">q</span><span class="p">,</span> <span class="ss">js: </span><span class="kp">false</span> <span class="p">}</span> <span class="cp">%&gt;</span>
+    <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"btn btn-mini add_equipement"</span><span class="nt">&gt;</span>Ajouter<span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"actions"</span><span class="nt">&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">f</span><span class="p">.</span><span class="nf">submit</span> <span class="s2">"Valider"</span><span class="p">,</span> <span class="ss">:class</span> <span class="o">=&gt;</span> <span class="s2">"btn btn-primary"</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  ...
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span></code></pre></figure>
+
+<p>Dans notre formulaire voiture (avec un builder nommé f), nous ajoutons une partie qui appelle notre partial pour les objets “equipement” liés à notre objet “voiture” grâce à la méthode Rails <strong>“f.fields_for :equipements do |q|”</strong> . “q” représente ici le builder pour la partie du formulaire qui concerne les objets “equipement”.</p>
+
+<p>On appelle donc le partial précédemment créé et on lui passe les variables (à réutiliser dans le partial) <strong>“q”</strong> et <strong>“js”</strong> à false (car ici nous utilisons le partial dans le premier cas pour charger les objets “equipement” liés à notre voiture). Nous ajoutons également des classes CSS (ex : bloc-equipements, add_equipement, equipements et equipement dans le partial) pour les manipuler dans le code JS plus bas.</p>
+
+<h4 id="6--un-peu-de-javascript-jquery-">6 – Un peu de javascript (jQuery) …</h4>
+<p>Dans le code qui va suivre nous allons aborder les notions “Rails” suivantes :</p>
+<h2 id="unordered-list">Unordered List</h2>
+<ul>
+  <li><strong>escape_javascript</strong> : échappe les retours chariots, les guillemets simples et doubles</li>
+  <li><strong>child_index</strong> : est une option de <strong>fields_for</strong> permettant de contrôler le nommage des inputs</li>
+</ul>
+
+<p>Le script est à insérer avant la fermeture &lt;% end %&gt; du formulaire (form_for) afin de pouvoir utiliser le builder “f” au sein du code JS ci-dessous. Attention toutefois, en fonction de votre intégration HTML des modifications peuvent être à apporter.</p>
+
+<figure class="highlight"><pre><code class="language-javascript-ruby" data-lang="javascript+ruby">&lt;%= form_for(@voiture) do |f| %&gt;
+# ....
+&lt;script&gt;
+    $(function(){
+ 
+      // On clique sur le bouton ajouter (equipement) 
+      $(".add_equipement").click(function(){
+ 
+        // On récupère le nombre d'équipements créés dans le DOM
+        index = $("#bloc-equipements .equipement").length;
+        // On récupère le nombre d'équipements affichés à l'utilisateur
+        index2 = $("#bloc-equipements .equipement").not(':hidden').length;
+ 
+        // On créé en ruby une nouvelle instance vide d'équipement liée à notre objet voiture (f.object retourne notre @voiture)
+        &lt;% new_option = f.object.equipements.build %&gt;
+ 
+        // on fait appel au fields_for en ruby en lui passant notre nouvelle instance d'équipement et en lui précisant le child_index
+        // On appelle ensuite notre partial en lui fournissant le "q" et le "js" à true (cf : cas d'utilisation dynamique du partial)  
+        // On stocke le résultat du partial dans la var html
+        html = "&lt;%= escape_javascript (f.fields_for(:equipements, new_option, child_index: 'valeur_cherchee') { |q| render(partial: 'form_equipements', locals: { q: q, js: true }) }) %&gt;"
+        
+        // On remplace valeur_cherchee2 par le numéro de l'équipement 
+        var regexp2 = new RegExp("valeur_cherchee2", "g");
+        html = html.replace(regexp2, (index2 + 1));
+ 
+        // On remplace valeur_cherchee par le nouvel index ruby des inputs
+        var regexp = new RegExp("valeur_cherchee", "g");
+        html = html.replace(regexp, index);
+ 
+        // On ajoute au DOM les champs de l'équipement ajouté
+        $("#bloc-equipements").append(html);
+        return false;
+      });
+ 
+      // On clique sur le bouton supprimer (equipement)
+      $("#bloc-equipements").on("click", ".remove_equipement", function(){
+ 
+        // On passe le champ caché _destroy à true 
+        $(this).next().val("true");
+ 
+        // On cache l'affichage des champs de l'équipement à supprimer
+        $(this).parent().parent(".equipements").hide();
+ 
+        // On récupère tous les équipements situés à la suite de l'équipement cliqué
+        liste_div_equipements = $(this).parent().parent().nextAll(".equipements");
+ 
+        // Pour chaque equipement on réattribue un numéro pour les labels (ex : 1,2,3,4, on supprime 2, on renomme 3,4 en 2,3)
+        $.each(liste_div_equipements, function(index, div_equipements){
+          span_numero = $(div_equipements).children(".equipement").children(".field").children("label").children("span.numero-equipement");
+          span_numero.text(span_numero.text()-1);
+        });
+        return false;
+      });
+    });
+  &lt;/script&gt;
+# ....
+&lt;% end %&gt;</code></pre></figure>
+
+<p><em><small>Originally published at <a href="https://www.sois-net.fr/rails-nested-attributes-un-formulaire-dynamique/" target="_blank">Sois-net</a>.</small></em></p>
+
+
+  <!-- POST NAVIGATION -->
+  <div class="postNav clearfix">
+     
+      <a class="prev" href="/envoyer-mail-pj-rails/"><span>&laquo;&nbsp;Rails 4 : Envoyer des mails avec des pièces jointes</span>
+      
+    </a>
+      
+      
+      <a class="next" href="/pagespeed-suffisant/"><span>PageSpeed insight : analyse en ligne suffisante ?&nbsp;&raquo;</span>
+       
+      </a>
+     
+  </div>
+</div>
+
+      </div>
+   </div><!-- end .content -->
+
+   <div class="footer">
+   <div class="container">
+      <p class="copy">&copy; 2020 - POB - Powered by <a href="http://jekyllrb.com">Jekyll</a></p>
+
+      <div class="footer-links"> 
+         <ul class="noList"> 
+            
+            
+            <li><a href="https://twitter.com/poblouin">
+                  <svg id="twitter" class="custom-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" style="height: 30px; width: 30px;"><circle class="outer-shape" cx="50" cy="50" r="48" style="opacity: 1;"></circle>
+                  <path class="inner-shape" style="opacity: 1;" transform="translate(25,25) scale(0.5)" d="M99.001,19.428c-3.606,1.608-7.48,2.695-11.547,3.184c4.15-2.503,7.338-6.466,8.841-11.189 c-3.885,2.318-8.187,4-12.768,4.908c-3.667-3.931-8.893-6.387-14.676-6.387c-11.104,0-20.107,9.054-20.107,20.223 c0,1.585,0.177,3.128,0.52,4.609c-16.71-0.845-31.525-8.895-41.442-21.131C6.092,16.633,5.1,20.107,5.1,23.813 c0,7.017,3.55,13.208,8.945,16.834c-3.296-0.104-6.397-1.014-9.106-2.529c-0.002,0.085-0.002,0.17-0.002,0.255 c0,9.799,6.931,17.972,16.129,19.831c-1.688,0.463-3.463,0.71-5.297,0.71c-1.296,0-2.555-0.127-3.783-0.363 c2.559,8.034,9.984,13.882,18.782,14.045c-6.881,5.424-15.551,8.657-24.971,8.657c-1.623,0-3.223-0.096-4.796-0.282 c8.898,5.738,19.467,9.087,30.82,9.087c36.982,0,57.206-30.817,57.206-57.543c0-0.877-0.02-1.748-0.059-2.617 C92.896,27.045,96.305,23.482,99.001,19.428z"></path>
+                  </svg>
+            </a></li>
+            
+             
+            
+         </ul>
+      </div>
+   </div>
+</div><!-- end .footer -->
+
+
+   <!-- Add jQuery and other scripts -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src=""><\/script>')</script>
+<script src="/assets/js/dropcap.min.js"></script>
+<script src="/assets/js/responsive-nav.min.js"></script>
+<script src="/assets/js/scripts.js"></script>
+
+
+</body>
+
+</html>

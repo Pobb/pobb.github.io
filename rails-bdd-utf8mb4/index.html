@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>Rails : bien préparer sa BDD pour stocker des Emoji</title>
+
+    <!-- Open Graph Meta -->
+    <meta content="[ Pob's corner ]" property="og:site_name">
+    
+      <meta content="Rails : bien préparer sa BDD pour stocker des Emoji" property="og:title">
+    
+    
+      <meta content="article" property="og:type">
+    
+    
+      <meta content="Another tech blog" property="og:description">
+    
+    
+      <meta content="https://pobb.github.io/rails-bdd-utf8mb4/" property="og:url">
+    
+    
+      <meta content="2016-10-17T00:00:00+02:00" property="article:published_time">
+      <meta content="https://pobb.github.io/about/" property="article:author">
+    
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@poblouin">
+    <meta name="twitter:creator" content="@poblouin">
+    
+      <meta name="twitter:title" content="Rails : bien préparer sa BDD pour stocker des Emoji">
+    
+    
+      <meta name="twitter:url" content="https://pobb.github.io/rails-bdd-utf8mb4/">
+    
+    
+      <meta name="twitter:description" content="Another tech blog">
+    
+    
+      <meta name="twitter:image:src" content="https://pobb.github.io/assets/img/touring.jpg">
+    
+
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico" />
+
+    <!-- Come and get me RSS readers -->
+    <link rel="alternate" type="application/rss+xml" title="[ Pob's corner ]" href="https://pobb.github.io/feed.xml" />
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!--[if IE 8]><link rel="stylesheet" href="/assets/css/ie.css"><![endif]-->
+    
+    <link rel="canonical" href="https://www.sois-net.fr/rails-bien-preparer-sa-bdd-pour-stocker-des-emoji/"/>
+    
+
+    <!-- Modernizr -->
+    <script src="/assets/js/modernizr.custom.15390.js" type="text/javascript"></script>
+
+    
+</head>
+
+
+<body>
+
+    <div class="header">
+     <div class="container">
+         <h1 class="logo"><a href="/">[ Pob's corner ]</a></h1>
+         <nav class="nav-collapse">
+             <ul class="noList">
+                 
+                 <li class="element first  ">
+                     <a href="/index.html">Home</a>
+                 </li> 
+                 
+                 <li class="element   ">
+                     <a href="/about">About</a>
+                 </li> 
+                 
+                 <li class="element   last">
+                     <a href="/archives">Archives</a>
+                 </li> 
+                 
+             </ul>
+         </nav>
+     </div>
+ </div><!-- end .header -->
+
+
+   <div class="content">
+      <div class="container">
+         <div class="post">
+  
+  <h1 class="postTitle">Rails : bien préparer sa BDD pour stocker des Emoji</h1>
+  <p class="meta">October 17, 2016 | <span class="time">3</span> Minute Read</p>
+  
+  <p class="intro"><span class="dropcap">D</span>dans cet article début d’approche sur la problématique pour stocker des "Emoji" en BDD</p>
+
+<p>Effectivement on pense que cela ne sert à rien de les utiliser mais le problème avec ces icônes est qu’ils sont disponibles nativement sur la plupart des claviers mobiles désormais, et donc … peuvent se retrouver dans le moteur de n’importe quel formulaire de votre site. Si vous ne gérez pas ce cas particulier, cela peut engendrer des erreurs.</p>
+
+<h4 id="la-fausse-piste-serialize">La fausse piste “serialize”</h4>
+<p>Certains optent pour la solution un peu brute et pas forcément de bonne augure de spécifier dans un model que tel champ est à “serializer” (je suis moi aussi un peu tombé dedans ^^)</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">MonModel</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">serialize</span> <span class="ss">:mon_champ</span>
+<span class="k">end</span></code></pre></figure>
+
+<p>Alors effectivement ça “marche” mais allez jeter un oeil en BDD et cela vous enchantera moins (d’autant plus qu’il sera difficile de requêter sur ce genre de données avec des conditions par exemple).</p>
+
+<p>Serialize sert avant tout à nous aider à sauvegarder des données en tant qu’objet (au passage, en YAML). Passons donc cette alternative.</p>
+
+<h4 id="un-problème-dencodage-avant-tout">Un problème d’encodage avant tout</h4>
+<p>Le problème avec les encodages classiques en <strong>utf8</strong> est que ce dernier utilise au maximum 3 octets par caractère. Les Emoji en nécessitent 4 ! Depuis la version MySQL 5.5.3, l’encodage <strong>utf8mb4</strong> permet de manipuler tous les caractères unicodes de 4 octets (comprenant donc nos fameux emojis).</p>
+
+<p>L’avantage est qu’il suffit de configurer notre BDD pour lui dire d’utiliser cet encodage précis. Attention toutefois, il vous faut MySQL &gt;= 5.5.3.</p>
+
+<h4 id="création-et-configuration-de-notre-projet-rails">Création et configuration de notre projet Rails</h4>
+<p>Nous allons dans un premier temps créer un projet Rails et le configurer pour mettre par défaut ce nouvel encodage (nous reviendrons dans un autre article sur la manière de procéder pour mettre à jour des colonnes sans perte de données sur un projet existant).</p>
+
+<figure class="highlight"><pre><code class="language-console" data-lang="console"><span class="gp">#</span><span class="w"> </span>Necessite rails <span class="o">&gt;=</span> 4 et surtout MySQL <span class="o">&gt;=</span> 5.5.3
+<span class="go">rails new mon_projet -d mysql</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1"># On modifie notre database.yml</span>
+<span class="c1"># ...</span>
+<span class="na">adapter</span><span class="pi">:</span> <span class="s">mysql2</span>
+<span class="na">encoding</span><span class="pi">:</span> <span class="s">utf8mb4</span>
+<span class="na">charset</span><span class="pi">:</span> <span class="s">utf8mb4</span>
+<span class="na">collation</span><span class="pi">:</span> <span class="s">utf8mb4_unicode_ci</span>
+<span class="c1"># ...</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># On créer un fichier dans config/initializers/utf8mb4</span>
+<span class="nb">require</span> <span class="s1">'active_record/connection_adapters/abstract_mysql_adapter'</span>
+
+<span class="k">module</span> <span class="nn">ActiveRecord</span>
+  <span class="k">module</span> <span class="nn">ConnectionAdapters</span>
+    <span class="k">class</span> <span class="nc">AbstractMysqlAdapter</span>
+      <span class="no">NATIVE_DATABASE_TYPES</span><span class="p">[</span><span class="ss">:string</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="ss">:name</span> <span class="o">=&gt;</span> <span class="s2">"varchar"</span><span class="p">,</span> <span class="ss">:limit</span> <span class="o">=&gt;</span> <span class="mi">191</span> <span class="p">}</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></figure>
+
+<p>Comme vous pouvez le constater, on précise ici une limite de <strong>191</strong> pour nos types “varchar”. Habituellement on est sur du <strong>255</strong>. En utf8 la taille maximum de l’index est de 767 octets, donc on a 767 / 3 octets par caractère = 255 caractères max pour l’utf8 habituel, et pour l’utf8mb4 on obtient 767 / 4 octets par caractère = 191 caractères max.</p>
+
+<figure class="highlight"><pre><code class="language-console" data-lang="console"><span class="gp">#</span><span class="w"> </span>On créer notre BDD
+<span class="go">rails db:create
+rails db:migrate
+
+</span><span class="gp">#</span><span class="w"> </span>On créer un objet de <span class="nb">test</span>
+<span class="go">rails generate scaffold articles titre contenu:text</span></code></pre></figure>
+
+<p>Lancez votre projet et rendez-vous sur la page de création d’un article, placez-y un titre et du texte avec un emoji dans chaque champ. Vous n’aurez pas de problème lors de la sauvegarde en BDD</p>
+
+<p><em>Sources : <a href="https://dev.mysql.com/doc/refman/5.5/en/charset-unicode-utf8mb4.html" target="_blank">Documentation MySQL utf8mb4</a></em></p>
+
+<p><em><small>Originally published at <a href="https://www.sois-net.fr/rails-bien-preparer-sa-bdd-pour-stocker-des-emoji/" target="_blank">Sois-net</a>.</small></em></p>
+
+
+  <!-- POST NAVIGATION -->
+  <div class="postNav clearfix">
+     
+      <a class="prev" href="/sublime-select-mot/"><span>&laquo;&nbsp;Sublime Text : la sélection d’un mot ponctué en un seul clic</span>
+      
+    </a>
+      
+      
+      <a class="next" href="/animate-css/"><span>A la découverte d’animate.css&nbsp;&raquo;</span>
+       
+      </a>
+     
+  </div>
+</div>
+
+      </div>
+   </div><!-- end .content -->
+
+   <div class="footer">
+   <div class="container">
+      <p class="copy">&copy; 2020 - POB - Powered by <a href="http://jekyllrb.com">Jekyll</a></p>
+
+      <div class="footer-links"> 
+         <ul class="noList"> 
+            
+            
+            <li><a href="https://twitter.com/poblouin">
+                  <svg id="twitter" class="custom-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" style="height: 30px; width: 30px;"><circle class="outer-shape" cx="50" cy="50" r="48" style="opacity: 1;"></circle>
+                  <path class="inner-shape" style="opacity: 1;" transform="translate(25,25) scale(0.5)" d="M99.001,19.428c-3.606,1.608-7.48,2.695-11.547,3.184c4.15-2.503,7.338-6.466,8.841-11.189 c-3.885,2.318-8.187,4-12.768,4.908c-3.667-3.931-8.893-6.387-14.676-6.387c-11.104,0-20.107,9.054-20.107,20.223 c0,1.585,0.177,3.128,0.52,4.609c-16.71-0.845-31.525-8.895-41.442-21.131C6.092,16.633,5.1,20.107,5.1,23.813 c0,7.017,3.55,13.208,8.945,16.834c-3.296-0.104-6.397-1.014-9.106-2.529c-0.002,0.085-0.002,0.17-0.002,0.255 c0,9.799,6.931,17.972,16.129,19.831c-1.688,0.463-3.463,0.71-5.297,0.71c-1.296,0-2.555-0.127-3.783-0.363 c2.559,8.034,9.984,13.882,18.782,14.045c-6.881,5.424-15.551,8.657-24.971,8.657c-1.623,0-3.223-0.096-4.796-0.282 c8.898,5.738,19.467,9.087,30.82,9.087c36.982,0,57.206-30.817,57.206-57.543c0-0.877-0.02-1.748-0.059-2.617 C92.896,27.045,96.305,23.482,99.001,19.428z"></path>
+                  </svg>
+            </a></li>
+            
+             
+            
+         </ul>
+      </div>
+   </div>
+</div><!-- end .footer -->
+
+
+   <!-- Add jQuery and other scripts -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src=""><\/script>')</script>
+<script src="/assets/js/dropcap.min.js"></script>
+<script src="/assets/js/responsive-nav.min.js"></script>
+<script src="/assets/js/scripts.js"></script>
+
+
+</body>
+
+</html>

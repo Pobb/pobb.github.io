@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>Wicked_pdf #1 : Installation et mise en bouche</title>
+
+    <!-- Open Graph Meta -->
+    <meta content="[ Pob's corner ]" property="og:site_name">
+    
+      <meta content="Wicked_pdf #1 : Installation et mise en bouche" property="og:title">
+    
+    
+      <meta content="article" property="og:type">
+    
+    
+      <meta content="Another tech blog" property="og:description">
+    
+    
+      <meta content="https://pobb.github.io/wicked-pdf-installation/" property="og:url">
+    
+    
+      <meta content="2015-04-07T00:00:00+02:00" property="article:published_time">
+      <meta content="https://pobb.github.io/about/" property="article:author">
+    
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@poblouin">
+    <meta name="twitter:creator" content="@poblouin">
+    
+      <meta name="twitter:title" content="Wicked_pdf #1 : Installation et mise en bouche">
+    
+    
+      <meta name="twitter:url" content="https://pobb.github.io/wicked-pdf-installation/">
+    
+    
+      <meta name="twitter:description" content="Another tech blog">
+    
+    
+      <meta name="twitter:image:src" content="https://pobb.github.io/assets/img/touring.jpg">
+    
+
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico" />
+
+    <!-- Come and get me RSS readers -->
+    <link rel="alternate" type="application/rss+xml" title="[ Pob's corner ]" href="https://pobb.github.io/feed.xml" />
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!--[if IE 8]><link rel="stylesheet" href="/assets/css/ie.css"><![endif]-->
+    
+    <link rel="canonical" href="https://www.sois-net.fr/wicked_pdf-1-installation-et-mise-en-bouche/"/>
+    
+
+    <!-- Modernizr -->
+    <script src="/assets/js/modernizr.custom.15390.js" type="text/javascript"></script>
+
+    
+</head>
+
+
+<body>
+
+    <div class="header">
+     <div class="container">
+         <h1 class="logo"><a href="/">[ Pob's corner ]</a></h1>
+         <nav class="nav-collapse">
+             <ul class="noList">
+                 
+                 <li class="element first  ">
+                     <a href="/index.html">Home</a>
+                 </li> 
+                 
+                 <li class="element   ">
+                     <a href="/about">About</a>
+                 </li> 
+                 
+                 <li class="element   last">
+                     <a href="/archives">Archives</a>
+                 </li> 
+                 
+             </ul>
+         </nav>
+     </div>
+ </div><!-- end .header -->
+
+
+   <div class="content">
+      <div class="container">
+         <div class="post">
+  
+  <h1 class="postTitle">Wicked_pdf #1 : Installation et mise en bouche</h1>
+  <p class="meta">April 07, 2015 | <span class="time">3</span> Minute Read</p>
+  
+  <p class="intro"><span class="dropcap">D</span>ans un projet rails plusieurs solutions existent pour générer un PDF (Prawn, Pdfkit, Wicked pdf etc.). Nous allons nous orienter sur la gem "wicked_pdf" en plusieurs billets pour l’aborder au mieux.</p>
+
+<p><strong>Pourquoi wicked_pdf</strong> ? Sa mise en place et son utilisation nous semblait la meilleure, on peut générer un PDF dans les vues avec un layout et un style personnalisé comme si on intégrait une vue classique (html/css). Pas besoin de générer ce pdf dans l’action d’un controller (nous préférons placer et gérer le contenu d’un PDF au sein du répertoire views d’un projet plutôt que dans un controller). Nous avions essayé Prawn au préalable pour finalement choisir wicked_pdf.</p>
+
+<h4 id="1--on-importe-les-gems-et-on-les-installe">1 – On importe les gems et on les installe</h4>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">gem</span> <span class="s1">'wkhtmltopdf-binary'</span>
+<span class="n">gem</span> <span class="s1">'wicked_pdf'</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">bundle install</span></code></pre></figure>
+
+<p>Vous noterez la présence de la gem <strong>wkhtmltopdf-binary</strong> : cette gem va installer l’utilitaire <a href="http://wkhtmltopdf.org/" target="_blank">wkhtmltopdf</a> pour convertir du HTML en PDF. Vous pouvez très bien installer ce binaire vous même en ligne de commande sur votre machine pour ne pas avoir besoin d’installer cette gem. Si jamais vous optez pour cette option il vous faudra préciser le chemin vers l’executable wkhtmltopdf dans un fichier de votre application (plus d’infos <a href="https://github.com/mileszs/wicked_pdf" target="_blank">ici</a>).</p>
+
+<h4 id="2--on-ajoute-notre-mimetype">2 – On ajoute notre Mime::Type</h4>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># app/config/mime_types.rb</span>
+<span class="no">Mime</span><span class="o">::</span><span class="no">Type</span><span class="p">.</span><span class="nf">register</span> <span class="s2">"application/pdf"</span><span class="p">,</span> <span class="ss">:pdf</span></code></pre></figure>
+
+<h4 id="3--on-créé-un-layout-pour-notre-pdf">3 – On créé un layout pour notre PDF</h4>
+<p>Cette étape n’est pas obligatoire mais cela vous évitera de revenir en arrière si vous souhaitez personnaliser le template de votre PDF par la suite.</p>
+
+<figure class="highlight"><pre><code class="language-erb" data-lang="erb"># app/views/layouts/mon_layout_pdf.html.erb
+ 
+<span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+ <span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;title&gt;</span>Layout PDF<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span> <span class="nt">/&gt;</span>
+ <span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+ <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"header"</span><span class="nt">&gt;&lt;/div&gt;</span>
+ <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"principale"</span><span class="nt">&gt;</span>
+  <span class="cp">&lt;%=</span> <span class="k">yield</span> <span class="cp">%&gt;</span>
+ <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span></code></pre></figure>
+
+<h4 id="4--on-créer-la-vue-avec-la-bonne-extension-pdferb">4 – On créer la vue avec la bonne extension (.pdf.erb)</h4>
+
+<figure class="highlight"><pre><code class="language-erb" data-lang="erb"># app/views/mon_objet/show.pdf.erb
+ 
+<span class="nt">&lt;h2&gt;</span>Titre pdf de mon_objet<span class="nt">&lt;/h2&gt;</span>
+<span class="nt">&lt;p&gt;</span>Avec le contenu de mon <span class="cp">&lt;%=</span> <span class="vi">@mon_objet</span> <span class="cp">%&gt;</span> <span class="nt">&lt;/p&gt;</span></code></pre></figure>
+
+<h4 id="5--on-appelle-cette-vue-et-ce-layout-depuis-notre-action-de-controller">5 – On appelle cette vue et ce layout depuis notre action de controller</h4>
+<p>Vous remarquez que dans app/views/mon_objet/ vous obtenez un fichier show.html.erb et un fichier show.pdf.erb. Pour dire à notre action de switcher sur la bonne vue, nous allons lui spécifier à l’aide du format (sans oublier de lui préciser de choisir notre layout) :</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># app/controllers/mon_objet_controller.rb</span>
+<span class="k">def</span> <span class="nf">show</span>
+ <span class="n">respond_to</span> <span class="k">do</span> <span class="o">|</span><span class="nb">format</span><span class="o">|</span>
+  <span class="nb">format</span><span class="p">.</span><span class="nf">html</span> <span class="p">{</span> <span class="n">render</span> <span class="ss">:show</span> <span class="p">}</span>
+  <span class="nb">format</span><span class="p">.</span><span class="nf">pdf</span> <span class="p">{</span> 
+   <span class="n">render</span> <span class="ss">:pdf</span> <span class="o">=&gt;</span> <span class="s2">"show"</span><span class="p">,</span> <span class="ss">:layout</span> <span class="o">=&gt;</span> <span class="s1">'pdf.html'</span>
+  <span class="p">}</span>
+ <span class="k">end</span>
+<span class="k">end</span></code></pre></figure>
+
+<h4 id="bon-on-affiche-notre-pdf-">Bon, on affiche notre PDF ?</h4>
+<p>Lancer votre navigateur, rendez-vous à l’url qui affiche le show de votre objet en rajoutant l’extension .pdf derrière l’id, par exemple : <strong>http://localhost:3000/mon_objet/1.pdf</strong></p>
+
+<p>Et voilà c’est déjà terminé, on vient de créer un PDF en 5 étapes seulement en Rails. Nous aborderons plus en profondeur cette gem et les différentes possibilités (images, style etc.) qui s’offrent à nous dans de prochains billets.</p>
+
+<p><em><small>Originally published at <a href="https://www.sois-net.fr/wicked_pdf-1-installation-et-mise-en-bouche/" target="_blank">Sois-net</a>.</small></em></p>
+
+
+  <!-- POST NAVIGATION -->
+  <div class="postNav clearfix">
+     
+      <a class="prev" href="/images-rwd-seo-chargement-fichier/"><span>&laquo;&nbsp;Images, RWD & SEO : comment charger le fichier adéquat ?</span>
+      
+    </a>
+      
+      
+      <a class="next" href="/images-style-js/"><span>Wicked_pdf #2 : Des images, du style et du JS !&nbsp;&raquo;</span>
+       
+      </a>
+     
+  </div>
+</div>
+
+      </div>
+   </div><!-- end .content -->
+
+   <div class="footer">
+   <div class="container">
+      <p class="copy">&copy; 2020 - POB - Powered by <a href="http://jekyllrb.com">Jekyll</a></p>
+
+      <div class="footer-links"> 
+         <ul class="noList"> 
+            
+            
+            <li><a href="https://twitter.com/poblouin">
+                  <svg id="twitter" class="custom-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" style="height: 30px; width: 30px;"><circle class="outer-shape" cx="50" cy="50" r="48" style="opacity: 1;"></circle>
+                  <path class="inner-shape" style="opacity: 1;" transform="translate(25,25) scale(0.5)" d="M99.001,19.428c-3.606,1.608-7.48,2.695-11.547,3.184c4.15-2.503,7.338-6.466,8.841-11.189 c-3.885,2.318-8.187,4-12.768,4.908c-3.667-3.931-8.893-6.387-14.676-6.387c-11.104,0-20.107,9.054-20.107,20.223 c0,1.585,0.177,3.128,0.52,4.609c-16.71-0.845-31.525-8.895-41.442-21.131C6.092,16.633,5.1,20.107,5.1,23.813 c0,7.017,3.55,13.208,8.945,16.834c-3.296-0.104-6.397-1.014-9.106-2.529c-0.002,0.085-0.002,0.17-0.002,0.255 c0,9.799,6.931,17.972,16.129,19.831c-1.688,0.463-3.463,0.71-5.297,0.71c-1.296,0-2.555-0.127-3.783-0.363 c2.559,8.034,9.984,13.882,18.782,14.045c-6.881,5.424-15.551,8.657-24.971,8.657c-1.623,0-3.223-0.096-4.796-0.282 c8.898,5.738,19.467,9.087,30.82,9.087c36.982,0,57.206-30.817,57.206-57.543c0-0.877-0.02-1.748-0.059-2.617 C92.896,27.045,96.305,23.482,99.001,19.428z"></path>
+                  </svg>
+            </a></li>
+            
+             
+            
+         </ul>
+      </div>
+   </div>
+</div><!-- end .footer -->
+
+
+   <!-- Add jQuery and other scripts -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src=""><\/script>')</script>
+<script src="/assets/js/dropcap.min.js"></script>
+<script src="/assets/js/responsive-nav.min.js"></script>
+<script src="/assets/js/scripts.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>Images, RWD & SEO : comment charger le fichier adéquat ?</title>
+
+    <!-- Open Graph Meta -->
+    <meta content="[ Pob's corner ]" property="og:site_name">
+    
+      <meta content="Images, RWD & SEO : comment charger le fichier adéquat ?" property="og:title">
+    
+    
+      <meta content="article" property="og:type">
+    
+    
+      <meta content="Another tech blog" property="og:description">
+    
+    
+      <meta content="https://pobb.github.io/images-rwd-seo-chargement-fichier/" property="og:url">
+    
+    
+      <meta content="2015-03-27T00:00:00+01:00" property="article:published_time">
+      <meta content="https://pobb.github.io/about/" property="article:author">
+    
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@poblouin">
+    <meta name="twitter:creator" content="@poblouin">
+    
+      <meta name="twitter:title" content="Images, RWD & SEO : comment charger le fichier adéquat ?">
+    
+    
+      <meta name="twitter:url" content="https://pobb.github.io/images-rwd-seo-chargement-fichier/">
+    
+    
+      <meta name="twitter:description" content="Another tech blog">
+    
+    
+      <meta name="twitter:image:src" content="https://pobb.github.io/assets/img/touring.jpg">
+    
+
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico" />
+
+    <!-- Come and get me RSS readers -->
+    <link rel="alternate" type="application/rss+xml" title="[ Pob's corner ]" href="https://pobb.github.io/feed.xml" />
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!--[if IE 8]><link rel="stylesheet" href="/assets/css/ie.css"><![endif]-->
+    
+    <link rel="canonical" href="https://www.sois-net.fr/images-rwd-seo-comment-charger-le-fichier-adequat/"/>
+    
+
+    <!-- Modernizr -->
+    <script src="/assets/js/modernizr.custom.15390.js" type="text/javascript"></script>
+
+    
+</head>
+
+
+<body>
+
+    <div class="header">
+     <div class="container">
+         <h1 class="logo"><a href="/">[ Pob's corner ]</a></h1>
+         <nav class="nav-collapse">
+             <ul class="noList">
+                 
+                 <li class="element first  ">
+                     <a href="/index.html">Home</a>
+                 </li> 
+                 
+                 <li class="element   ">
+                     <a href="/about">About</a>
+                 </li> 
+                 
+                 <li class="element   last">
+                     <a href="/archives">Archives</a>
+                 </li> 
+                 
+             </ul>
+         </nav>
+     </div>
+ </div><!-- end .header -->
+
+
+   <div class="content">
+      <div class="container">
+         <div class="post">
+  
+  <h1 class="postTitle">Images, RWD & SEO : comment charger le fichier adéquat ?</h1>
+  <p class="meta">March 27, 2015 | <span class="time">4</span> Minute Read</p>
+  
+  <p class="intro"><span class="dropcap">L</span>es développeurs web doivent faire face à l’évolution permanente des technologies qui les entourent. Nous devons concevoir des sites qui s’adaptent à tous les terminaux (et plus uniquement à des écrans d’ordinateurs) et qui soient performants non seulement pour l’utilisateur mais aussi pour le référencement (SEO).</p>
+
+<p>On conçoit donc des sites « responsifs » pour gérer l’affichage et rendre l’expérience utilisateur idéale en fonction du terminal utilisé (mobile, tablette, pc). Il est également conseillé d’optimiser le temps de chargement des pages, de réduire le nombre de requêtes HTTP, et de compresser nos différents fichiers en faisant un passage obligatoire sur les <strong>images</strong>.</p>
+
+<h4 id="comment-récupérer-et-afficher-la-bonne-image-en-fonction-du-terminal-">Comment récupérer et afficher la bonne image en fonction du terminal ?</h4>
+
+<p><u>Etude de cas :</u> sur notre site responsif <em>www.mon-site.com</em> nous avons une image sur le bandeau d’accueil qui fait <strong>1200x500px</strong> pour <strong>195ko</strong>. Pour l’afficher, un simple code comme celui-ci suffit :</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"./images/bandeau_accueil.jpg"</span> <span class="na">alt=</span><span class="s">"Bandeau"</span> <span class="nt">/&gt;</span></code></pre></figure>
+
+<p>Pour harmoniser l’affichage sur les différents terminaux on peut attribuer une taille fixe en fonction du breakpoint dans lequel on se trouve (par ex 800×500 pour les tablettes, et 320×135 pour les mobiles).</p>
+
+<p><strong>Problème :</strong> sur un mobile, nous n’avons pas besoin de charger une grosse image HD de 1200×500 (ça prend du temps, c’est mauvais pour l’UX et Google n’aime pas trop ça d’après son outil PageSpeed). Il nous faudrait dans l’idéal la même image en 320×135. Du coup comment dire à notre html de charger notre image dans la bonne taille ?</p>
+
+<p>On prend notre image, on la retaille dans les 3 formats désirés, ce qui nous donne les trois fichiers suivants :</p>
+
+<h2 id="unordered-list">Unordered List</h2>
+<ul>
+  <li>bandeau_accueil_large.jpg <em>(1200x500px – 195ko)</em></li>
+  <li>bandeau_accueil_medium.jpg <em>(800x500px – 95ko)</em></li>
+  <li>bandeau_accueil_small.jpg <em>(320x135px – 13ko)</em></li>
+</ul>
+
+<p>Premier constat, outre la diminution de la taille en pixels, on divise par 14 le poids de notre image « small ». C’est déjà une bonne nouvelle. Maintenant on va se pencher sur la partie HTML, auparavant on avait un simple appel standard. Désormais on va utiliser la balise HTML5 <strong>&lt;picture&gt;</strong> pour lui spécifier plusieurs sources.</p>
+
+<p>En voici la syntaxe :</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;picture</span> <span class="na">alt=</span><span class="s">"Texte sur notre image"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;source</span> <span class="na">srcset=</span><span class="s">"image/bandeau_accueil_large.jpg"</span> <span class="na">media=</span><span class="s">"(min-width: 1200px)"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;source</span> <span class="na">srcset=</span><span class="s">"image/bandeau_accueil_medium.jpg"</span> <span class="na">media=</span><span class="s">"(min-width: 800px)"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;source</span> <span class="na">srcset=</span><span class="s">"image/bandeau_accueil_small.jpg"</span> <span class="na">media=</span><span class="s">"(min-width: 320px)"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;img</span> <span class="na">srcset=</span><span class="s">"image/bandeau_accueil_large.jpg"</span> <span class="na">alt=</span><span class="s">"image par défaut"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/picture&gt;</span></code></pre></figure>
+
+<p>On ajoute une source par taille en spécifiant le chemin adéquat pour chaque image mais aussi sur quel breakpoint on souhaite que cela charge (media). On rajoute également un <strong>&lt;img&gt;</strong> pour spécifier l’image par défaut si le navigateur ne parvient pas à manipuler ou charger les sources du dessus. Dans notre cas on souhaite que par défaut il s’agisse de l’image la plus grande.</p>
+
+<h4 id="peut-on-utiliser-la-balise-html5-picture-sur-nimporte-quel-navigateur-">Peut-on utiliser la balise HTML5 &lt;picture&gt; sur n’importe quel navigateur ?</h4>
+
+<p>La réponse est non ! Petit détour sur <a href="https://caniuse.com/#search=picture" target="_blank">Can I Use</a> concernant notre balise &lt;picture&gt; qui n’est encore que très partiellement compatible. Pour remédier à ce problème nous avons opté pour le polyfill <a href="https://github.com/scottjehl/picturefill" target="_blank">picturefill</a> (plugin javascript) qui va faire en sorte que les notions HTML5 comme picture, srcset sizes, etc… fonctionnent sur les navigateurs anciens. Il suffit de rajouter l’appel au script juste en bas de notre page.</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"js/picturefill.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre></figure>
+
+<h4 id="le-résultat-">Le résultat ?</h4>
+<p>Nous obtenons désormais un temps de chargement meilleur sur nos tablettes / smartphones car les images sont plus rapides à charger (HTTP). De son côté PageSpeed ne nous demande plus d’optimiser notre image car elle a été compressée/optimisée et désormais nous est retournée sur le format adéquat.</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"fr"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Test balise Picture<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1.0"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;h1&gt;</span>Notre site de test<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;picture</span> <span class="na">alt=</span><span class="s">"Texte sur notre image"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;source</span> <span class="na">srcset=</span><span class="s">"image/bandeau_accueil_large.jpg"</span> <span class="na">media=</span><span class="s">"(min-width: 1200px)"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;source</span> <span class="na">srcset=</span><span class="s">"image/bandeau_accueil_medium.jpg"</span> <span class="na">media=</span><span class="s">"(min-width: 800px)"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;source</span> <span class="na">srcset=</span><span class="s">"image/bandeau_accueil_small.jpg"</span> <span class="na">media=</span><span class="s">"(min-width: 320px)"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">srcset=</span><span class="s">"image/bandeau_accueil_large.jpg"</span> <span class="na">alt=</span><span class="s">"image par défaut"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/picture&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"picturefill.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span></code></pre></figure>
+
+<p>Il sera intéréssant de suivre dans le temps l’évolution des différentes balises HTML5 et de la compatibilité sur les navigateurs. Il existe également de nombreuses solutions/syntaxes pour répondre à ce problème de chargement d’image en fonction du format, etc… Nous avons opté pour celle-ci car elle nous semblait la plus simple et la plus sûre dans le temps. Affaire à suivre.</p>
+
+<p><em><small>Originally published at <a href="https://www.sois-net.fr/images-rwd-seo-comment-charger-le-fichier-adequat/" target="_blank">Sois-net</a>.</small></em></p>
+
+
+  <!-- POST NAVIGATION -->
+  <div class="postNav clearfix">
+     
+      <a class="prev" href="/pagespeed-suffisant/"><span>&laquo;&nbsp;PageSpeed insight : analyse en ligne suffisante ?</span>
+      
+    </a>
+      
+      
+      <a class="next" href="/wicked-pdf-installation/"><span>Wicked_pdf #1 : Installation et mise en bouche&nbsp;&raquo;</span>
+       
+      </a>
+     
+  </div>
+</div>
+
+      </div>
+   </div><!-- end .content -->
+
+   <div class="footer">
+   <div class="container">
+      <p class="copy">&copy; 2020 - POB - Powered by <a href="http://jekyllrb.com">Jekyll</a></p>
+
+      <div class="footer-links"> 
+         <ul class="noList"> 
+            
+            
+            <li><a href="https://twitter.com/poblouin">
+                  <svg id="twitter" class="custom-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" style="height: 30px; width: 30px;"><circle class="outer-shape" cx="50" cy="50" r="48" style="opacity: 1;"></circle>
+                  <path class="inner-shape" style="opacity: 1;" transform="translate(25,25) scale(0.5)" d="M99.001,19.428c-3.606,1.608-7.48,2.695-11.547,3.184c4.15-2.503,7.338-6.466,8.841-11.189 c-3.885,2.318-8.187,4-12.768,4.908c-3.667-3.931-8.893-6.387-14.676-6.387c-11.104,0-20.107,9.054-20.107,20.223 c0,1.585,0.177,3.128,0.52,4.609c-16.71-0.845-31.525-8.895-41.442-21.131C6.092,16.633,5.1,20.107,5.1,23.813 c0,7.017,3.55,13.208,8.945,16.834c-3.296-0.104-6.397-1.014-9.106-2.529c-0.002,0.085-0.002,0.17-0.002,0.255 c0,9.799,6.931,17.972,16.129,19.831c-1.688,0.463-3.463,0.71-5.297,0.71c-1.296,0-2.555-0.127-3.783-0.363 c2.559,8.034,9.984,13.882,18.782,14.045c-6.881,5.424-15.551,8.657-24.971,8.657c-1.623,0-3.223-0.096-4.796-0.282 c8.898,5.738,19.467,9.087,30.82,9.087c36.982,0,57.206-30.817,57.206-57.543c0-0.877-0.02-1.748-0.059-2.617 C92.896,27.045,96.305,23.482,99.001,19.428z"></path>
+                  </svg>
+            </a></li>
+            
+             
+            
+         </ul>
+      </div>
+   </div>
+</div><!-- end .footer -->
+
+
+   <!-- Add jQuery and other scripts -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src=""><\/script>')</script>
+<script src="/assets/js/dropcap.min.js"></script>
+<script src="/assets/js/responsive-nav.min.js"></script>
+<script src="/assets/js/scripts.js"></script>
+
+
+</body>
+
+</html>

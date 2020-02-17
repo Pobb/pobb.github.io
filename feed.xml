@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>[ Pob's corner ]</title>
+    <description>Another tech blog</description>
+    <link>https://pobb.github.io/</link>
+    <atom:link href="https://pobb.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Mon, 17 Feb 2020 14:47:36 +0100</pubDate>
+    <lastBuildDate>Mon, 17 Feb 2020 14:47:36 +0100</lastBuildDate>
+    <generator>Jekyll v3.8.5</generator>
+    
+      
+      <item>
+        <title>Draw.io : un outil pour réaliser des organigrammes et des diagrammes</title>
+        <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;P&lt;/span&gt;our réaliser un schéma, un organigramme ou un diagramme, qu’il soit conséquent ou très petit, c’est parfois compliqué. Quel logiciel vais-je devoir télécharger, comment s’en sert-on, est-ce que le rendu visuel sera facilement exportable et surtout présentable ? &quot;Je veux juste faire une patate et un carré avec une flèche !&quot;&lt;/p&gt;
+
+&lt;p&gt;Je cherchais donc un outil pour réaliser des diagrammes ou schémas un peu techniques en vue de pouvoir les “modifier” par la suite mais aussi les “présenter” à d’autres personnes (le tout sans contraintes de paiement ni d’inscription, et pourquoi pas une interface sympa et intuitive).&lt;/p&gt;
+
+&lt;h4 id=&quot;drawio-à-la-rescousse-&quot;&gt;Draw.io à la rescousse !&lt;/h4&gt;
+&lt;p&gt;En cherchant un peu sur la toile je suis tombé sur Draw.io qui m’a donné pleine satisfaction. Cet outil est disponible en ligne mais il existe également des applications que l’on peut installer dans son navigateur (Chrome). Nous ne l’avons pas testé mais il existe même un plugin WordPress pour intégrer l’outil au wysiwyg du CMS.&lt;/p&gt;
+
+&lt;h4 id=&quot;une-interface-simple-et-intuitive-online--offline&quot;&gt;Une interface simple et intuitive (online &amp;amp; offline)&lt;/h4&gt;
+&lt;p&gt;L’avantage premier est qu’il n’est pas nécessaire de s’inscrire. Ensuite il est tout à fait possible d’enregistrer son travail et de le modifier par la suite. Vous n’avez plus internet ? Pas de problème, téléchargez l’extension sur Chrome et vous pourrez le manipuler dans un écran comme une véritable application desktop.&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;img src=&quot;/assets/img/post-draw.png&quot; alt=&quot;&quot; /&gt; 
+  &lt;figcaption&gt;Fig1. - Version online de l’outil Draw.io&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;L’interface propose trois colonnes comme sur de nombreux logiciels de dessins avec au centre votre espace de travail, à gauche les outils mis à votre disposition et à droite des paramètres plus génériques. La prise en main a été rapide, nous ne sommes donc pas perdus ..&lt;/p&gt;
+
+&lt;h4 id=&quot;une-palette-doutils-complète&quot;&gt;Une palette d’outils complète&lt;/h4&gt;
+&lt;p&gt;La palette d’outils à gauche est assez longue mais il est facile de s’y repérer. Vous pourrez facilement y faire des diagrammes génériques mais aussi plus précis pour représenter de l’UML, des mockups (iOs, Android) ou encore des schémas réseaux. Bref il y a du choix.&lt;/p&gt;
+
+&lt;p&gt;Un petit moteur de recherche vous permet même de regrouper l’ensemble des éléments disponibles pour votre recherche.&lt;/p&gt;
+
+&lt;h4 id=&quot;sauvegarder-et-exporter-son-travail&quot;&gt;Sauvegarder et exporter son travail&lt;/h4&gt;
+&lt;p&gt;La sauvegarde de vos données se fera en XML, cela vous aidera à réouvrir et modifier votre travail par la suite. Il est également possible d’extraire son travail en fichier image, en SVG, en HTML, en PDF.&lt;/p&gt;
+
+&lt;p&gt;Pour le mode online, l’outil est compatible avec Google Drive, Dropbox et OneDrive, mais vous pourrez bien évidemment sauvegarder votre travail sur votre ordinateur.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;small&gt;Originally published at &lt;a href=&quot;https://www.sois-net.fr/draw-io-un-outil-pour-realiser-des-organigrammes-et-des-diagrammes/&quot; target=&quot;_blank&quot;&gt;Sois-net&lt;/a&gt;.&lt;/small&gt;&lt;/em&gt;&lt;/p&gt;
+</description>
+        
+          <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;P&lt;/span&gt;our réaliser un schéma, un organigramme ou un diagramme, qu’il soit conséquent ou très petit, c’est parfois compliqué. Quel logiciel vais-je devoir télécharger, comment s’en sert-on, est-ce que le rendu visuel sera facilement exportable et surtout présentable ? &quot;Je veux juste faire une patate et un carré avec une flèche !&quot;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Mon, 09 Jan 2017 00:00:00 +0100</pubDate>
+        <link>https://pobb.github.io/draw-io/</link>
+        <guid isPermaLink="true">https://pobb.github.io/draw-io/</guid>
+        
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>A la découverte d’animate.css</title>
+        <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;A&lt;/span&gt;ujourd’hui petite présentation d’animate.css, une feuille de style CSS permettant d’animer des éléments de notre DOM, à l’aide des animations CSS3.&lt;/p&gt;
+
+&lt;p&gt;Pour avoir un aperçu de ce que cela donne, rendez-vous sur le site officiel : &lt;a href=&quot;https://daneden.github.io/animate.css/&quot; target=&quot;_blank&quot;&gt;animate.css&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Au total on y retrouve plus de 70 animations différentes, il y a donc de quoi faire !&lt;/p&gt;
+
+&lt;p&gt;Techniquement il ne s’agit ni plus ni moins que d’une feuille de style CSS (avec des propriétés CSS3) à charger. Ensuite on appelle la classe “animated” sur un élément, puis la classe portant le nom de l’animation désirée.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;animated bounce&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Example&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Vous pouvez également jouer avec vos animations en personnalisant la “duration”, le “delay” et l’“iteration” le tout en CSS :&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot; data-lang=&quot;css&quot;&gt;&lt;span class=&quot;nf&quot;&gt;#yourElement&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;py&quot;&gt;-vendor-animation-duration&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;py&quot;&gt;-vendor-animation-delay&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;py&quot;&gt;-vendor-animation-iteration-count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;infinite&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Pour jouer une animation lors d’un événement, il est tout à fait possible de la déclencher avec un peu de javascript. Il est également possible de détecter en javascript la “fin” d’une animation, très pratique donc pour supprimer notamment les classes que l’on vient d’ajouter pour permettre de ré-exécuter notre animation ensuite.&lt;/p&gt;
+
+&lt;p&gt;Ce fichier nous permettra de gagner du temps à réaliser des animations CSS3 basiques que l’on pourra appliquer par exemple sur des formulaires, des slideshows ou pour donner un effet lors de l’affichage d’un contenu au scroll etc. Attention toutefois de ne pas en abuser et d’utiliser les animations à bon escient …&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;small&gt;Originally published at &lt;a href=&quot;https://www.sois-net.fr/a-la-decouverte-danimate-css/&quot; target=&quot;_blank&quot;&gt;Sois-net&lt;/a&gt;.&lt;/small&gt;&lt;/em&gt;&lt;/p&gt;
+</description>
+        
+          <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;A&lt;/span&gt;ujourd’hui petite présentation d’animate.css, une feuille de style CSS permettant d’animer des éléments de notre DOM, à l’aide des animations CSS3.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Tue, 29 Nov 2016 00:00:00 +0100</pubDate>
+        <link>https://pobb.github.io/animate-css/</link>
+        <guid isPermaLink="true">https://pobb.github.io/animate-css/</guid>
+        
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>Rails : bien préparer sa BDD pour stocker des Emoji</title>
+        <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;D&lt;/span&gt;dans cet article début d’approche sur la problématique pour stocker des &quot;Emoji&quot; en BDD&lt;/p&gt;
+
+&lt;p&gt;Effectivement on pense que cela ne sert à rien de les utiliser mais le problème avec ces icônes est qu’ils sont disponibles nativement sur la plupart des claviers mobiles désormais, et donc … peuvent se retrouver dans le moteur de n’importe quel formulaire de votre site. Si vous ne gérez pas ce cas particulier, cela peut engendrer des erreurs.&lt;/p&gt;
+
+&lt;h4 id=&quot;la-fausse-piste-serialize&quot;&gt;La fausse piste “serialize”&lt;/h4&gt;
+&lt;p&gt;Certains optent pour la solution un peu brute et pas forcément de bonne augure de spécifier dans un model que tel champ est à “serializer” (je suis moi aussi un peu tombé dedans ^^)&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MonModel&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Base&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;serialize&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:mon_champ&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Alors effectivement ça “marche” mais allez jeter un oeil en BDD et cela vous enchantera moins (d’autant plus qu’il sera difficile de requêter sur ce genre de données avec des conditions par exemple).&lt;/p&gt;
+
+&lt;p&gt;Serialize sert avant tout à nous aider à sauvegarder des données en tant qu’objet (au passage, en YAML). Passons donc cette alternative.&lt;/p&gt;
+
+&lt;h4 id=&quot;un-problème-dencodage-avant-tout&quot;&gt;Un problème d’encodage avant tout&lt;/h4&gt;
+&lt;p&gt;Le problème avec les encodages classiques en &lt;strong&gt;utf8&lt;/strong&gt; est que ce dernier utilise au maximum 3 octets par caractère. Les Emoji en nécessitent 4 ! Depuis la version MySQL 5.5.3, l’encodage &lt;strong&gt;utf8mb4&lt;/strong&gt; permet de manipuler tous les caractères unicodes de 4 octets (comprenant donc nos fameux emojis).&lt;/p&gt;
+
+&lt;p&gt;L’avantage est qu’il suffit de configurer notre BDD pour lui dire d’utiliser cet encodage précis. Attention toutefois, il vous faut MySQL &amp;gt;= 5.5.3.&lt;/p&gt;
+
+&lt;h4 id=&quot;création-et-configuration-de-notre-projet-rails&quot;&gt;Création et configuration de notre projet Rails&lt;/h4&gt;
+&lt;p&gt;Nous allons dans un premier temps créer un projet Rails et le configurer pour mettre par défaut ce nouvel encodage (nous reviendrons dans un autre article sur la manière de procéder pour mettre à jour des colonnes sans perte de données sur un projet existant).&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;gp&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;Necessite rails &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; 4 et surtout MySQL &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; 5.5.3
+&lt;span class=&quot;go&quot;&gt;rails new mon_projet -d mysql&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# On modifie notre database.yml&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;adapter&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;mysql2&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;encoding&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;utf8mb4&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;charset&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;utf8mb4&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;collation&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;utf8mb4_unicode_ci&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# On créer un fichier dans config/initializers/utf8mb4&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'active_record/connection_adapters/abstract_mysql_adapter'&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;ActiveRecord&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;ConnectionAdapters&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AbstractMysqlAdapter&lt;/span&gt;
+      &lt;span class=&quot;no&quot;&gt;NATIVE_DATABASE_TYPES&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;varchar&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:limit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;191&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Comme vous pouvez le constater, on précise ici une limite de &lt;strong&gt;191&lt;/strong&gt; pour nos types “varchar”. Habituellement on est sur du &lt;strong&gt;255&lt;/strong&gt;. En utf8 la taille maximum de l’index est de 767 octets, donc on a 767 / 3 octets par caractère = 255 caractères max pour l’utf8 habituel, et pour l’utf8mb4 on obtient 767 / 4 octets par caractère = 191 caractères max.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;gp&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;On créer notre BDD
+&lt;span class=&quot;go&quot;&gt;rails db:create
+rails db:migrate
+
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;On créer un objet de &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;rails generate scaffold articles titre contenu:text&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Lancez votre projet et rendez-vous sur la page de création d’un article, placez-y un titre et du texte avec un emoji dans chaque champ. Vous n’aurez pas de problème lors de la sauvegarde en BDD&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Sources : &lt;a href=&quot;https://dev.mysql.com/doc/refman/5.5/en/charset-unicode-utf8mb4.html&quot; target=&quot;_blank&quot;&gt;Documentation MySQL utf8mb4&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;small&gt;Originally published at &lt;a href=&quot;https://www.sois-net.fr/rails-bien-preparer-sa-bdd-pour-stocker-des-emoji/&quot; target=&quot;_blank&quot;&gt;Sois-net&lt;/a&gt;.&lt;/small&gt;&lt;/em&gt;&lt;/p&gt;
+</description>
+        
+          <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;D&lt;/span&gt;dans cet article début d’approche sur la problématique pour stocker des &quot;Emoji&quot; en BDD&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Mon, 17 Oct 2016 00:00:00 +0200</pubDate>
+        <link>https://pobb.github.io/rails-bdd-utf8mb4/</link>
+        <guid isPermaLink="true">https://pobb.github.io/rails-bdd-utf8mb4/</guid>
+        
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>Sublime Text : la sélection d’un mot ponctué en un seul clic</title>
+        <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;V&lt;/span&gt;oici une petite astuce sur l’éditeur Sublime Text pour sélectionner un mot (une variable, une fonction etc.) en double cliquant dessus même si celui-ci contient une ponctuation. Exemples :&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# ruby&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;variable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;empty?&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- html --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;p&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;txt-center&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Hello world !&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Faites le test sur votre Sublime Text, si vous effectuez un double-clic pour sélectionner “empty?” dans le code Ruby, ou pour sélectionner “txt-center” en entier sur le code HTML, seuls “empty” et “txt” le seront.&lt;/p&gt;
+
+&lt;p&gt;Il suffit d’ajouter des propriétés au moteur de syntaxe chargé par Sublime Text. Par exemple si j’ouvre un fichier .rb la syntaxe Sublime chargée est “Ruby” etc.&lt;/p&gt;
+
+&lt;p&gt;Ouvrez un fichier ruby (.rb) puis aller dans “&lt;strong&gt;Preferences &amp;gt; Settings – More &amp;gt; Syntax Specific – User&lt;/strong&gt;” et ajoutez-y le code suivant :&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;word_separators&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;./&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;'-:,.;&amp;lt;&amp;gt;~@#$%^&amp;amp;*|+=[]{}`~&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Dans le cas de notre exemple avec la classe “txt-center”, ouvrons désormais un fichier html ou html.erb dans Sublime Text puis aller dans “&lt;strong&gt;Preferences &amp;gt; Settings – More &amp;gt; Syntax Specific – User&lt;/strong&gt;” et on y ajoute le même code en retirant le “tiret” de l’expression pour qu’elle puisse être matchée :&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;word_separators&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;./&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;':,.;&amp;lt;&amp;gt;~@#$%^&amp;amp;*|+=[]{}`~&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Et voilà le tour est joué ! Faites et adaptez cette manipulation sur toutes les syntaxes/extensions de fichiers Sublime souhaités.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;small&gt;Originally published at &lt;a href=&quot;https://www.sois-net.fr/sublime-text-la-selection-dun-mot-ponctue-en-un-seul-clic/&quot; target=&quot;_blank&quot;&gt;Sois-net&lt;/a&gt;.&lt;/small&gt;&lt;/em&gt;&lt;/p&gt;
+</description>
+        
+          <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;V&lt;/span&gt;oici une petite astuce sur l’éditeur Sublime Text pour sélectionner un mot (une variable, une fonction etc.) en double cliquant dessus même si celui-ci contient une ponctuation. Exemples :&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Wed, 24 Aug 2016 00:00:00 +0200</pubDate>
+        <link>https://pobb.github.io/sublime-select-mot/</link>
+        <guid isPermaLink="true">https://pobb.github.io/sublime-select-mot/</guid>
+        
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>Rails : Problème d’index trop long sur une migration ?</title>
+        <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;E&lt;/span&gt;n voulant créer une table de liaison entre deux autres dans un projet, nous avons rencontré un problème avec les index. Petit récap :&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CreateCategorieCritereCategorieProduit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Migration&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;change&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;create_table&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:categorie_criteres_categorie_produits&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;id: &lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;belongs_to&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:categorie_critere&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;belongs_to&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:categorie_produit&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;add_index&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:categorie_criteres_categorie_produits&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:categorie_critere_id&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;
+    add_index :categorie_criteres_categorie_produits, :categorie_produit_id&quot;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;En faisant un petit rake db:migrate qui va bien, on obtenait ceci :&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;go&quot;&gt;==  CreateCategorieCritereCategorieProduit: migrating =========================
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;-- create_table(:categorie_criteres_categorie_produits, {:id=&amp;gt;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;rake aborted!
+StandardError: An error has occurred, all later migrations canceled:
+
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;Index name 'index_categorie_criteres_categorie_produits_on_categorie_critere_id' on table 'categorie_criteres_categorie_produits' is too long;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;the limit is 64 characters&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Le problème vient du fait qu’en voulant respecter la convention Rails sur le bon nomage de notre table de liaison on se retrouve avec un index ayant un nom très long de 68 caractères. Or la limite autorisé par notre BDD est de 64. Pour contrer cela, on peut forcer un nom d’index différent en le précisant à la fin de notre migration comme ci-dessous :&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CreateCategorieCritereCategorieProduit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Migration&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;change&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;create_table&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:categorie_criteres_categorie_produits&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;id: &lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;belongs_to&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:categorie_critere&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;belongs_to&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:categorie_produit&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;add_index&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:categorie_criteres_categorie_produits&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:categorie_critere_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;name: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;cat_crit_id&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;add_index&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:categorie_criteres_categorie_produits&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:categorie_produit_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;name: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;cat_prod_id&quot;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Et voilà !&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;small&gt;Originally published at &lt;a href=&quot;https://www.sois-net.fr/rails-probleme-dindex-trop-long-sur-une-migration/&quot; target=&quot;_blank&quot;&gt;Sois-net&lt;/a&gt;.&lt;/small&gt;&lt;/em&gt;&lt;/p&gt;
+</description>
+        
+          <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;E&lt;/span&gt;n voulant créer une table de liaison entre deux autres dans un projet, nous avons rencontré un problème avec les index. Petit récap :&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Wed, 04 May 2016 00:00:00 +0200</pubDate>
+        <link>https://pobb.github.io/rails-migration-nom-long/</link>
+        <guid isPermaLink="true">https://pobb.github.io/rails-migration-nom-long/</guid>
+        
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>Récupérer toutes les URLs d’un site</title>
+        <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;P&lt;/span&gt;Petite astuce pour récupérer toutes les URLs d’un site (pratique lors de la refonte d’un site ou pour le SEO) :&lt;/p&gt;
+
+&lt;h4 id=&quot;1--installer-ack&quot;&gt;1 – Installer ack&lt;/h4&gt;
+&lt;p&gt;Ack est un outil comme grep développé en Perl et qui utilise des expressions régulières. Son avantage est qu’il est puissant et complet pour les recherches.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;go&quot;&gt;brew install ack&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h4 id=&quot;2--faire-sa-recherche-sur-une-url-donnée-et-la-stocker-dans-un-fichier&quot;&gt;2 – Faire sa recherche sur une URL donnée et la stocker dans un fichier&lt;/h4&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;gp&quot;&gt;wget --spider -r -nv -nd -np http://ma-super-url/ 2&amp;gt;&lt;/span&gt;&amp;amp;1 | ack &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'(?&amp;amp;lt;=URL:)\S+'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; ~/Desktop/liste_urls.txt&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;gp&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;--spider&lt;/span&gt;                  don&lt;span class=&quot;s1&quot;&gt;'t download anything.
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;-r,  --recursive          specify recursive download.
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;-nv, --no-verbose         turn off verboseness, without being quiet.
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;-nd, --no-directories     don'&lt;/span&gt;t create directories.
+&lt;span class=&quot;gp&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-np&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;--no-parent&lt;/span&gt;          don&lt;span class=&quot;s1&quot;&gt;'t ascend to the parent directory.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;small&gt;Originally published at &lt;a href=&quot;https://www.sois-net.fr/recuperer-toutes-les-urls-dun-site-wget-ack/&quot; target=&quot;_blank&quot;&gt;Sois-net&lt;/a&gt;.&lt;/small&gt;&lt;/em&gt;&lt;/p&gt;
+</description>
+        
+          <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;P&lt;/span&gt;Petite astuce pour récupérer toutes les URLs d’un site (pratique lors de la refonte d’un site ou pour le SEO) :&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Tue, 12 Apr 2016 00:00:00 +0200</pubDate>
+        <link>https://pobb.github.io/recuperer-toutes-urls/</link>
+        <guid isPermaLink="true">https://pobb.github.io/recuperer-toutes-urls/</guid>
+        
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>#Barcamp : quoi de neuf sur Rails 5 avant sa sortie finale ?</title>
+        <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;N&lt;/span&gt;otre équipe développe sur Ruby on Rails depuis maintenant de nombreuses années, nous surveillons donc en permanence l’évolution du Framework. La version 5 approche à grands pas, ou en sommes-nous ?&lt;/p&gt;
+
+&lt;h2 id=&quot;unordered-list&quot;&gt;Unordered List&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Actuellement (mars 2016) en &lt;strong&gt;Beta 3&lt;/strong&gt; (mais déjà mis en production sur le projet Basecamp 3)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Ruby 2.2+&lt;/strong&gt; exclusivement&lt;/li&gt;
+  &lt;li&gt;Nouveauté (“the big one”) : &lt;strong&gt;Action Cable&lt;/strong&gt; qui permet de faire du temps réel en natif sur un projet. Ils ont profité de cette nouveauté pour ajouter un système permettant de réutiliser une vue en dehors de son controller (pour les websockets).&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;API Mode&lt;/strong&gt; : ils ont encore améliorer la possibilité de faire d’un projet rails une API en créant le mode –api lors de la création d’un projet. Ex : rails new mon_api –api va nous générer une structure de projet simplifiée nous permettant de ne travailler qu’avec du JSON, et non du HTML. D’autres améliorations seront apportées mais il semble qu’ils se sont beaucoup penchés sur la partie JSON pour le moment.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Commandes rails vs. rake&lt;/strong&gt; : certaines commandes étaient placées dans bin/rails et d’autres dans bin/rake.  Dans Rails 5, tout a été rassemblé dans bin/rails du coup il faudra s’habituer à faire un rails db:migrate au lieu de rake db:migrate (certaines commandes seront encore disponibles sous rake mais autant prendre l’habitude dès le début).&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Test runner&lt;/strong&gt; : lorsque l’on exécute des tests les failures sont désormais affichées en live, pas besoin d’attendre la fin des tests pour repérer d’où vient le problème.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Turbolinks 3&lt;/strong&gt; : Turbolinks permet de rafraichir des pages plus rapidement en rechargeant le contenu du body d’une page depuis le serveur au lieu de rafraichir la page et de recompiler à chaque fois le js et le CSS. Au lieu de faire comme l’ajax il remplace tout le body par défaut mais il est possible de spécifier quel élément rafraichir. Cela semble utile pour les sites one-pages. Les avis sont vraiment partagés, certains trouvent cela révolutionnaire d’autres s’en passeront comme sur Rails 4.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;“Et ça sort quand ?”&lt;/strong&gt; : aucune date n’a été donnée (trouvée ?) donc on ne sait pas. Mais la communauté est très active et les betas qui sortent montrent qu’il y a énormément de contributeurs qui sont actifs sur le sujet.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Pour clôturer cette petite présentation, j’ai installé un Rails 5 (beta) et développé une petite démo en utilisant ActionCable, le tout en moins de 2 heures (ce qui s’annonce très prometteur, nous y reviendrons probablement sur d’autres billets). Vivement la suite !&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;small&gt;Originally published at &lt;a href=&quot;https://www.sois-net.fr/quoi-de-neuf-sur-rails-5-avant-sa-sortie-finale/&quot; target=&quot;_blank&quot;&gt;Sois-net&lt;/a&gt;.&lt;/small&gt;&lt;/em&gt;&lt;/p&gt;
+</description>
+        
+          <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;N&lt;/span&gt;otre équipe développe sur Ruby on Rails depuis maintenant de nombreuses années, nous surveillons donc en permanence l’évolution du Framework. La version 5 approche à grands pas, ou en sommes-nous ?&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Thu, 31 Mar 2016 00:00:00 +0200</pubDate>
+        <link>https://pobb.github.io/barcamp-rails5/</link>
+        <guid isPermaLink="true">https://pobb.github.io/barcamp-rails5/</guid>
+        
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>#Barcamp : L’organisation du code dans Rails</title>
+        <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;D&lt;/span&gt;e nombreuses fonctionnalités sont disponibles pour bien organiser son code dans un projet Ruby on Rails, nous allons en aborder certains et comprendre quel est le rôle de chacun.&lt;/p&gt;
+
+&lt;h4 id=&quot;concerns--modules&quot;&gt;Concerns &amp;amp; modules&lt;/h4&gt;
+&lt;p&gt;Dans Rails il existe des répertoires « concerns » dans les modèles et les controllers. Cela va nous permettre de mieux organiser notre code et d’éviter parfois de dupliquer des lignes. Un concern est un « module » et non une classe, il faut s’en servir et regrouper cela par fonctionnalité, et non comme un simple endroit ou stocker des méthodes diverses et variées. Petit zoom sur ces deux termes :&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Concerns :&lt;/strong&gt; quand nos modèles partagent une information (un sujet/thème/fonctionnalité) on place cette information dans un concern. Ex: sur un site, des commentaires peuvent être ajoutés/affichés depuis un article, un produit, et cela concerne (oO) aussi la table utilisateur. On va donc créer un module commentaire dans un concerns. Si dans mon model utilisateur, commentaire, produit, article je fais un « validates mon_champ » ou un « has_many mon_truc » je vais placer tout cela également au même endroit dans un concern.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Module :&lt;/strong&gt; Un module fournit des méthodes qui seront utilisées dans plusieurs classes. C’est différent d’une classe : une classe est un objet, un module est une fonction. On peut instancier une classe, pas un module. On peut faire de l’héritage avec une classe, pas avec un module. Un module peut s’inclure dans un autre module ou dans une classe (include MonConcern en haut du fichier)&lt;/p&gt;
+
+&lt;h4 id=&quot;les-classes-abstraites&quot;&gt;Les classes abstraites&lt;/h4&gt;
+&lt;p&gt;Du fait que les modèles héritent d’Active Record, mettre en commun des méthodes d’instance entre deux modèles via une classe abstraite nécessite une configuration dans cette dernière.&lt;/p&gt;
+
+&lt;p&gt;On indiquera ainsi : self.abstract_class = true. La classe abstraire hérite d’Active Record : class Produit &amp;lt; ActiveRecord::Base. Les autres classes héritent de la classe abstraite.&lt;/p&gt;
+
+&lt;p&gt;Ruby ne supporte pas l’&lt;a href=&quot;http://marcricblog.blogspot.fr/2007/11/multiple-inheritance-mixins-and-blog_20.html&quot; target=&quot;_blank&quot;&gt;héritage multiple&lt;/a&gt;, ce qui peut être problématique. Il existe d’autres solutions pour pallier ce problème, tels que les &lt;a href=&quot;https://matt.aimonetti.net/posts/2012/07/30/ruby-class-module-mixins/&quot; target=&quot;_blank&quot;&gt;mixins&lt;/a&gt; ou les &lt;a href=&quot;http://metabates.com/2011/02/07/building-interfaces-and-abstract-classes-in-ruby/&quot; target=&quot;_blank&quot;&gt;interfaces&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Rails supporte les &lt;a href=&quot;https://robots.thoughtbot.com/whats-the-deal-with-rails-polymorphic-associations&quot; target=&quot;_blank&quot;&gt;relations polymorphiques&lt;/a&gt; entre modèles Active Record : c’est le Multiple Table Inheritance.&lt;/p&gt;
+
+&lt;h4 id=&quot;équilibre-entre-vues-partials-et-helpers&quot;&gt;Équilibre entre vues, partials et helpers&lt;/h4&gt;
+&lt;p&gt;On hésite souvent sur la manière de suivre le pattern MVC en arrivant dans les vues. Les index sont particulièrement l’endroit d’opérer des boucles contenant des requêtes, des conditions, qui ne semble pas pouvoir être réalisées ailleurs.&lt;/p&gt;
+
+&lt;p&gt;Les partials et les helpers peuvent servir le même but : factoriser du code dans une vue devenant trop longue ou nécessitant de la récursivité. La différence réside dans le langage dominant de l’un et l’autre :&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Les partials&lt;/strong&gt; sont l’endroit tout indiqué pour écrire du HTML. On peut y utiliser quelques conditions et boucles tant que l’objectif servi est de la présentation.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Les helpers&lt;/strong&gt; sont l’endroit désigné pour écrire du ruby. Une fonction doit enfermer de la logique, comme des conditions, des requêtes, et retourner quelque chose qui est inséré dans la vue. Ce n’est pas l’endroit pour construire des éléments du DOM.&lt;/p&gt;
+
+&lt;p&gt;Deux sites entrent plus dans le détails, &lt;a href=&quot;http://lkdjiin.github.io/blog/2015/03/28/pas-de-logique-dans-les-vues-rails/&quot; target=&quot;_blank&quot;&gt;en français&lt;/a&gt; et &lt;a href=&quot;https://www.toptal.com/ruby-on-rails/build-dumb-refactor-smart-ruby-on-rails#the-views&quot; target=&quot;_blank&quot;&gt;en anglais&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;small&gt;Originally published at &lt;a href=&quot;https://www.sois-net.fr/bc2016-lorganisation-du-code-dans-rails/&quot; target=&quot;_blank&quot;&gt;Sois-net&lt;/a&gt;.&lt;/small&gt;&lt;/em&gt;&lt;/p&gt;
+</description>
+        
+          <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;D&lt;/span&gt;e nombreuses fonctionnalités sont disponibles pour bien organiser son code dans un projet Ruby on Rails, nous allons en aborder certains et comprendre quel est le rôle de chacun.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Fri, 25 Mar 2016 00:00:00 +0100</pubDate>
+        <link>https://pobb.github.io/barcamp-oraga-code-rails/</link>
+        <guid isPermaLink="true">https://pobb.github.io/barcamp-oraga-code-rails/</guid>
+        
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>Rails : association &amp; inverse sur un même objet</title>
+        <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;N&lt;/span&gt;ous venons de rencontrer un cas bien particulier (mais pas tant que ça finalement) lors d’un récent développement. Nous avons un objet Produit et nous souhaitons l’associer à un autre produit en vue de répondre au besoin &quot;tel produit est associé à tel produit&quot;.&lt;/p&gt;
+
+&lt;p&gt;Jusque ici rien de compliqué. Cependant si l’on rentre un peu plus dans le détail et dans la demande qui nous a été formulée, on se rend compte que l’on a finalement besoin de : “Si j’associe mon produit A au produit B, est-ce que le produit B sera automatiquement associé au produit A ?” . La réponse est non, mais nous allons faire en sorte d’y répondre favorablement.&lt;/p&gt;
+
+&lt;p&gt;On crée nos tables produits et produit_associes, puis les modèles qui vont avec :&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# ruby2 / rails4.0&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# db/migrate/1...&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;change&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;create_table&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:produits&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:intitule&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:description&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# etc.&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;timestamps&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+ 
+&lt;span class=&quot;c1&quot;&gt;# db/migrate/2...&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;change&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;create_table&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:produit_associes&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;integer&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:pdt_origine_id&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;integer&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:pdt_associe_id&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;timestamps&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+ 
+&lt;span class=&quot;c1&quot;&gt;# app/models/produit.rb&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Produit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Base&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;has_many&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:associes_pdts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;foreign_key: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;pdt_origine_id&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;class_name: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ProduitAssocie&quot;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;has_many&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:associes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;through: :associes_pdts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;source: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;pdt_associe&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;dependent: :destroy&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+ 
+&lt;span class=&quot;c1&quot;&gt;# app/models/produit_associe.rb&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ProduitAssocie&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Base&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;belongs_to&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:pdt_associe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;foreign_key: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;pdt_associe_id&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;class_name: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Produit&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Si l’on teste déjà cela dans une console (avec des données en base) on obtient ceci :&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-irb&quot; data-lang=&quot;irb&quot;&gt;&lt;span class=&quot;go&quot;&gt;p1 = Produit.find(1)
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;#&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Produit&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;id: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;intitule: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Mon produit 1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;description: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Hello world ..&quot;&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;p2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Produit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;#&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Produit&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;id: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;intitule: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2d produit&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;description: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Bla bla ..&quot;&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;p1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;associes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p2&lt;/span&gt;
+ 
+&lt;span class=&quot;n&quot;&gt;p1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;associes&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;#&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Associations&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;CollectionProxy&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;#&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Produit&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;id: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;intitule: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2d produit&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;description: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Bla bla ..&quot;&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;p2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;associes&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;#&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Associations&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;CollectionProxy&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;On remarque donc que nous avons pu associer le produit 2 à notre produit 1, que lorsque nous interrogeons p1.associes il nous retourne bien le produit 2. Dans le cas inverse (p2.associes) le tableau est vide, et nous voulons qu’automatiquement p2 match avec p1 sur cette association inverse.&lt;/p&gt;
+
+&lt;p&gt;Pour cela nous allons modifier notre modèle produit_associe et lui indiquer d’enregistrer (ou supprimer) l’inverse de l’association créée/détruite :&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# app/models/produit_associe.rb&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ProduitAssocie&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Base&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;belongs_to&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:pdt_associe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;foreign_key: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;pdt_associe_id&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;class_name: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Produit&quot;&lt;/span&gt;
+ 
+  &lt;span class=&quot;n&quot;&gt;after_create&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:create_inverse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;unless: :has_inverse?&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;after_destroy&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:destroy_inverses&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;if: :has_inverse?&lt;/span&gt;
+ 
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;create_inverse&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;inverse_produit_assoc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+ 
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;destroy_inverses&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;inverses&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;destroy_all&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+ 
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;has_inverse?&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;exists?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;inverse_produit_assoc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+ 
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;inverses&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;where&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;inverse_produit_assoc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+ 
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;inverse_produit_assoc&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;pdt_origine_id: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pdt_associe_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;pdt_associe_id: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pdt_origine_id&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Si l’on reteste en console on obtient désormais :&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-irb&quot; data-lang=&quot;irb&quot;&gt;&lt;span class=&quot;go&quot;&gt;p1.associes
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;#&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Associations&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;CollectionProxy&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;#&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Produit&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;id: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;intitule: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2d produit&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;description: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Bla bla ..&quot;&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;p2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;associes&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;#&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Associations&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;CollectionProxy&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;#&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Produit&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;id: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;intitule: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Mon produit 1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;description: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Hello world ..&quot;&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Dès lors que l’on associe un produit à un autre, on crée l’association inverse automatiquement. L’ajout de “dependent: :destroy” dans le modèle Produit nous permettra de faire la même chose lorsque l’on supprimera l’une des deux associations existantes.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;small&gt;Originally published at &lt;a href=&quot;https://www.sois-net.fr/rails-association-bi-directionnelle-sur-un-meme-objet/&quot; target=&quot;_blank&quot;&gt;Sois-net&lt;/a&gt;.&lt;/small&gt;&lt;/em&gt;&lt;/p&gt;
+</description>
+        
+          <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;N&lt;/span&gt;ous venons de rencontrer un cas bien particulier (mais pas tant que ça finalement) lors d’un récent développement. Nous avons un objet Produit et nous souhaitons l’associer à un autre produit en vue de répondre au besoin &quot;tel produit est associé à tel produit&quot;.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Tue, 02 Feb 2016 00:00:00 +0100</pubDate>
+        <link>https://pobb.github.io/rails-association-et-inverse/</link>
+        <guid isPermaLink="true">https://pobb.github.io/rails-association-et-inverse/</guid>
+        
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>Rails : la gem did_you_mean pour vous servir !</title>
+        <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;A&lt;/span&gt;ujourd’hui un petit article pour vous présenter rapidement une Gem très sympathique : &lt;strong&gt;Did you mean&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Il est fréquent pour un développeur de faire des fautes de frappes, on peut parfois se tromper d’un caractère s’en forcément s’en rendre compte et perdre du temps… ça se termine souvent par “pfff la loose, j’ai mal écrit ma méthode” ou autre (à remplacer par la phrase qui vous convient ^^).&lt;/p&gt;
+
+&lt;p&gt;C’est là que la Gem did_you_mean peut entrer en action :&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# Gemfile&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'did_you_mean'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;group: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:development&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Un petit bundle install et c’est tout ! Le résultat ? Voici un petit exemple (réalisé pour la démo, donc un peu gros je vous l’accorde) :&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# app/models/mon_super_model.rb&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MonSuperModel&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Activerecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Base&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Cela me génère une erreur (car j’ai mal tapé ActiveRecord dans mon cas) et did_you_mean entre en jeu et me propose la bonne syntaxe :&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;img src=&quot;/assets/img/post-screen_didyoumean.png&quot; alt=&quot;&quot; /&gt; 
+  &lt;figcaption&gt;Fig1. - did_you_mean en action&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Et voilà, cela fonctionne dans beaucoup de cas je vous laisse découvrir plus en détails la Gem sur la page Github &lt;a href=&quot;https://github.com/yuki24/did_you_mean&quot; target=&quot;_blank&quot;&gt;github.com/yuki24/did_you_mean&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;small&gt;Originally published at &lt;a href=&quot;https://www.sois-net.fr/rails-la-gem-did_you_mean-pour-vous-servir/&quot; target=&quot;_blank&quot;&gt;Sois-net&lt;/a&gt;.&lt;/small&gt;&lt;/em&gt;&lt;/p&gt;
+</description>
+        
+          <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;A&lt;/span&gt;ujourd’hui un petit article pour vous présenter rapidement une Gem très sympathique : &lt;strong&gt;Did you mean&lt;/strong&gt;.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Tue, 19 Jan 2016 00:00:00 +0100</pubDate>
+        <link>https://pobb.github.io/gem-did-you-mean/</link>
+        <guid isPermaLink="true">https://pobb.github.io/gem-did-you-mean/</guid>
+        
+        
+      </item>
+      
+    
+  </channel>
+</rss>
