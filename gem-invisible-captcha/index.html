@@ -9,12 +9,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <title>Debian : mysql failed to start</title>
+    <title>Invisible Captcha : how to avoid spam in Rails</title>
 
     <!-- Open Graph Meta -->
     <meta content="[ Pob's corner ]" property="og:site_name">
     
-      <meta content="Debian : mysql failed to start" property="og:title">
+      <meta content="Invisible Captcha : how to avoid spam in Rails" property="og:title">
     
     
       <meta content="article" property="og:type">
@@ -23,10 +23,10 @@
       <meta content="Another tech blog" property="og:description">
     
     
-      <meta content="http://localhost:4000/debian-mysql-fail/" property="og:url">
+      <meta content="http://localhost:4000/gem-invisible-captcha/" property="og:url">
     
     
-      <meta content="2015-09-16T00:00:00+02:00" property="article:published_time">
+      <meta content="2020-03-01T00:00:00+01:00" property="article:published_time">
       <meta content="http://localhost:4000/about/" property="article:author">
     
 
@@ -35,10 +35,10 @@
     <meta name="twitter:site" content="@poblouin">
     <meta name="twitter:creator" content="@poblouin">
     
-      <meta name="twitter:title" content="Debian : mysql failed to start">
+      <meta name="twitter:title" content="Invisible Captcha : how to avoid spam in Rails">
     
     
-      <meta name="twitter:url" content="http://localhost:4000/debian-mysql-fail/">
+      <meta name="twitter:url" content="http://localhost:4000/gem-invisible-captcha/">
     
     
       <meta name="twitter:description" content="Another tech blog">
@@ -58,7 +58,7 @@
     <link rel="stylesheet" href="/assets/css/style.css">
     <!--[if IE 8]><link rel="stylesheet" href="/assets/css/ie.css"><![endif]-->
     
-    <link rel="canonical" href="https://www.sois-net.fr/debian-mysql-failed-to-start/"/>
+    <link rel="canonical" href="http://localhost:4000/gem-invisible-captcha/">
     
 
     <!-- Modernizr -->
@@ -98,33 +98,65 @@
       <div class="container">
          <div class="post">
   
-  <h1 class="postTitle">Debian : mysql failed to start</h1>
-  <p class="meta">September 16, 2015 | <span class="time">0</span> Minute Read</p>
+  <h1 class="postTitle">Invisible Captcha : how to avoid spam in Rails</h1>
+  <p class="meta">March 01, 2020 | <span class="time">2</span> Minute Read</p>
   
-  <p class="intro"><span class="dropcap">L</span>ors du redémarrage du serveur et/ou du serveur mysql directement, il se peut qu’en cas de problème mysql ne se lance pas et nous retourne un simple message "Starting MySQL database server: mysqld...failed!"</p>
+  <p class="intro"><span class="dropcap">I</span>f you got a public website and you got a form that can be edited from users (like a contact form for example), you will get spammed every day. How to deal with it ?</p>
 
-<p>Pour tracer un peu ce qui se passe (car ce message ne nous aide pas beaucoup) lancer la commande suivante :</p>
+<p>Spambots become stronger day after day. When we dev a new form we have to deal with security to avoir injections, but sometimes we have to avoid with spam. Imagine you got a website with a contact form, how will you do to stop spambots ?</p>
 
-<figure class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">mysqld_safe --log-error=/var/log/mysql.err</span></code></pre></figure>
+<p>There are man ways to do it, you can try to :</p>
+<ul>
+  <li>Ask a question to the user (example : Give me result for 4+4)</li>
+  <li>Use a captcha (like google captcha)</li>
+  <li>Disallow links in content form</li>
+  <li>Use a blacklist of words or adresses extension</li>
+</ul>
 
-<p>Puis aller lire les logs dans /var/log/mysql.err</p>
+<p>But all of these are not really good because of user experience (you stop the user in his way to complete the form asking a question or filling a captcha), or just because it’s hard to deal with a blacklist.</p>
 
-<p><strong>Source :</strong> <a href="http://stackoverflow.com/questions/14179007/mysqld-failing-to-start-and-mysql-error-2002" target="_blank">Ticket stackoverflow</a></p>
+<h4 id="honeypot-to-the-rescue-">Honeypot to the rescue !</h4>
+<p>Another approach is to use the honeypot principle : add in your form an input that won’t be visible by the user, will have to stay empty, but bots will complete it. This is the simple first way, but it’s not suffisant.</p>
 
-<p><em><small>Originally published at <a href="https://www.sois-net.fr/debian-mysql-failed-to-start/" target="_blank">Sois-net</a>.</small></em></p>
+<p>Bots test your website and to check if they complete your form, they are waiting for the response. So you have to catch them before submit (to block usual action), and give them a “200 response OK”.</p>
+
+<h4 id="invisible-captchas-gem">Invisible-captcha’s gem</h4>
+<p>In a Rails project, there is a gem to do it : <a href="https://github.com/markets/invisible_captcha" target="_blank">invisible-captcha</a> :</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1">#Gemfile</span>
+<span class="n">gem</span> <span class="s1">'invisible_captcha'</span>
+
+<span class="c1">#app/controller/contact_controller.rb</span>
+<span class="k">class</span> <span class="nc">ContactController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="n">invisible_captcha</span> <span class="ss">only: </span><span class="p">[</span><span class="ss">:create</span><span class="p">]</span>
+
+  <span class="k">def</span> <span class="nf">create</span>
+    <span class="c1"># check params</span>
+    <span class="no">Notification</span><span class="p">.</span><span class="nf">my_contact_form</span><span class="p">(</span><span class="n">params</span><span class="p">).</span><span class="nf">deliver</span>
+  <span class="k">end</span>
+
+<span class="k">end</span>
+
+<span class="c1">#app/views/contact/index.html.erb</span>
+<span class="o">&lt;</span><span class="sx">%= form_tag(envoyer_message_contact_index_path) do %&gt;
+  &lt;%=</span> <span class="n">invisible_captcha</span> <span class="sx">%&gt;
+  &lt;%= text_field_tag "name", nil, placeholder: "Name", required: true %&gt;</span>
+  <span class="o">&lt;</span><span class="sx">%= text_field_tag "email", nil, placeholder: "Email", required: true %&gt;
+  #(...)
+&lt;% end %&gt;</span></code></pre></figure>
+
+<p>You can choose to params this honeypot’s gem with many options, like custom the name of the field, choose what do to with callback etc.</p>
+
+<p><em><small>Github <a href="https://github.com/markets/invisible_captcha" target="_blank">invisible-captcha</a></small></em></p>
 
 
   <!-- POST NAVIGATION -->
   <div class="postNav clearfix">
      
-      <a class="prev" href="/header-marge-numero/"><span>&laquo;&nbsp;Wicked_pdf #4 : Un beau header, des marges et des numéros</span>
+      <a class="prev" href="/draw-io-copie/"><span>&laquo;&nbsp;Draw.io : un outil pour réaliser des organigrammes et des diagrammes</span>
       
     </a>
       
-      
-      <a class="next" href="/pj-pdf-mail/"><span>Wicked_pdf #5 : Un PDF en pièce jointe de votre mail&nbsp;&raquo;</span>
-       
-      </a>
      
   </div>
 </div>

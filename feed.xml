@@ -3,11 +3,75 @@
   <channel>
     <title>[ Pob's corner ]</title>
     <description>Another tech blog</description>
-    <link>https://pobb.github.io/</link>
-    <atom:link href="https://pobb.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 17 Feb 2020 15:46:47 +0100</pubDate>
-    <lastBuildDate>Mon, 17 Feb 2020 15:46:47 +0100</lastBuildDate>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sun, 01 Mar 2020 20:07:55 +0100</pubDate>
+    <lastBuildDate>Sun, 01 Mar 2020 20:07:55 +0100</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+      
+      <item>
+        <title>Invisible Captcha : how to avoid spam in Rails</title>
+        <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;I&lt;/span&gt;f you got a public website and you got a form that can be edited from users (like a contact form for example), you will get spammed every day. How to deal with it ?&lt;/p&gt;
+
+&lt;p&gt;Spambots become stronger day after day. When we dev a new form we have to deal with security to avoir injections, but sometimes we have to avoid with spam. Imagine you got a website with a contact form, how will you do to stop spambots ?&lt;/p&gt;
+
+&lt;p&gt;There are man ways to do it, you can try to :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Ask a question to the user (example : Give me result for 4+4)&lt;/li&gt;
+  &lt;li&gt;Use a captcha (like google captcha)&lt;/li&gt;
+  &lt;li&gt;Disallow links in content form&lt;/li&gt;
+  &lt;li&gt;Use a blacklist of words or adresses extension&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;But all of these are not really good because of user experience (you stop the user in his way to complete the form asking a question or filling a captcha), or just because it’s hard to deal with a blacklist.&lt;/p&gt;
+
+&lt;h4 id=&quot;honeypot-to-the-rescue-&quot;&gt;Honeypot to the rescue !&lt;/h4&gt;
+&lt;p&gt;Another approach is to use the honeypot principle : add in your form an input that won’t be visible by the user, will have to stay empty, but bots will complete it. This is the simple first way, but it’s not suffisant.&lt;/p&gt;
+
+&lt;p&gt;Bots test your website and to check if they complete your form, they are waiting for the response. So you have to catch them before submit (to block usual action), and give them a “200 response OK”.&lt;/p&gt;
+
+&lt;h4 id=&quot;invisible-captchas-gem&quot;&gt;Invisible-captcha’s gem&lt;/h4&gt;
+&lt;p&gt;In a Rails project, there is a gem to do it : &lt;a href=&quot;https://github.com/markets/invisible_captcha&quot; target=&quot;_blank&quot;&gt;invisible-captcha&lt;/a&gt; :&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;#Gemfile&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'invisible_captcha'&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;#app/controller/contact_controller.rb&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ContactController&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ApplicationController&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;invisible_captcha&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;only: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;create&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# check params&lt;/span&gt;
+    &lt;span class=&quot;no&quot;&gt;Notification&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;my_contact_form&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;deliver&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;#app/views/contact/index.html.erb&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;%= form_tag(envoyer_message_contact_index_path) do %&amp;gt;
+  &amp;lt;%=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;invisible_captcha&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;%&amp;gt;
+  &amp;lt;%= text_field_tag &quot;name&quot;, nil, placeholder: &quot;Name&quot;, required: true %&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;%= text_field_tag &quot;email&quot;, nil, placeholder: &quot;Email&quot;, required: true %&amp;gt;
+  #(...)
+&amp;lt;% end %&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;You can choose to params this honeypot’s gem with many options, like custom the name of the field, choose what do to with callback etc.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;small&gt;Github &lt;a href=&quot;https://github.com/markets/invisible_captcha&quot; target=&quot;_blank&quot;&gt;invisible-captcha&lt;/a&gt;&lt;/small&gt;&lt;/em&gt;&lt;/p&gt;
+</description>
+        
+          <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;I&lt;/span&gt;f you got a public website and you got a form that can be edited from users (like a contact form for example), you will get spammed every day. How to deal with it ?&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Sun, 01 Mar 2020 00:00:00 +0100</pubDate>
+        <link>http://localhost:4000/gem-invisible-captcha/</link>
+        <guid isPermaLink="true">http://localhost:4000/gem-invisible-captcha/</guid>
+        
+        
+      </item>
+      
     
       
       <item>
@@ -47,8 +111,8 @@
 </description>
         
         <pubDate>Mon, 09 Jan 2017 00:00:00 +0100</pubDate>
-        <link>https://pobb.github.io/draw-io/</link>
-        <guid isPermaLink="true">https://pobb.github.io/draw-io/</guid>
+        <link>http://localhost:4000/draw-io-copie/</link>
+        <guid isPermaLink="true">http://localhost:4000/draw-io-copie/</guid>
         
         
       </item>
@@ -87,8 +151,8 @@
 </description>
         
         <pubDate>Tue, 29 Nov 2016 00:00:00 +0100</pubDate>
-        <link>https://pobb.github.io/animate-css/</link>
-        <guid isPermaLink="true">https://pobb.github.io/animate-css/</guid>
+        <link>http://localhost:4000/animate-css/</link>
+        <guid isPermaLink="true">http://localhost:4000/animate-css/</guid>
         
         
       </item>
@@ -163,8 +227,8 @@ rails db:migrate
 </description>
         
         <pubDate>Mon, 17 Oct 2016 00:00:00 +0200</pubDate>
-        <link>https://pobb.github.io/rails-bdd-utf8mb4/</link>
-        <guid isPermaLink="true">https://pobb.github.io/rails-bdd-utf8mb4/</guid>
+        <link>http://localhost:4000/rails-bdd-utf8mb4/</link>
+        <guid isPermaLink="true">http://localhost:4000/rails-bdd-utf8mb4/</guid>
         
         
       </item>
@@ -207,8 +271,8 @@ rails db:migrate
 </description>
         
         <pubDate>Wed, 24 Aug 2016 00:00:00 +0200</pubDate>
-        <link>https://pobb.github.io/sublime-select-mot/</link>
-        <guid isPermaLink="true">https://pobb.github.io/sublime-select-mot/</guid>
+        <link>http://localhost:4000/sublime-select-mot/</link>
+        <guid isPermaLink="true">http://localhost:4000/sublime-select-mot/</guid>
         
         
       </item>
@@ -262,8 +326,8 @@ StandardError: An error has occurred, all later migrations canceled:
 </description>
         
         <pubDate>Wed, 04 May 2016 00:00:00 +0200</pubDate>
-        <link>https://pobb.github.io/rails-migration-nom-long/</link>
-        <guid isPermaLink="true">https://pobb.github.io/rails-migration-nom-long/</guid>
+        <link>http://localhost:4000/rails-migration-nom-long/</link>
+        <guid isPermaLink="true">http://localhost:4000/rails-migration-nom-long/</guid>
         
         
       </item>
@@ -297,8 +361,8 @@ StandardError: An error has occurred, all later migrations canceled:
 </description>
         
         <pubDate>Tue, 12 Apr 2016 00:00:00 +0200</pubDate>
-        <link>https://pobb.github.io/recuperer-toutes-urls/</link>
-        <guid isPermaLink="true">https://pobb.github.io/recuperer-toutes-urls/</guid>
+        <link>http://localhost:4000/recuperer-toutes-urls/</link>
+        <guid isPermaLink="true">http://localhost:4000/recuperer-toutes-urls/</guid>
         
         
       </item>
@@ -331,8 +395,8 @@ StandardError: An error has occurred, all later migrations canceled:
 </description>
         
         <pubDate>Thu, 31 Mar 2016 00:00:00 +0200</pubDate>
-        <link>https://pobb.github.io/barcamp-rails5/</link>
-        <guid isPermaLink="true">https://pobb.github.io/barcamp-rails5/</guid>
+        <link>http://localhost:4000/barcamp-rails5/</link>
+        <guid isPermaLink="true">http://localhost:4000/barcamp-rails5/</guid>
         
         
       </item>
@@ -378,8 +442,8 @@ StandardError: An error has occurred, all later migrations canceled:
 </description>
         
         <pubDate>Fri, 25 Mar 2016 00:00:00 +0100</pubDate>
-        <link>https://pobb.github.io/barcamp-oraga-code-rails/</link>
-        <guid isPermaLink="true">https://pobb.github.io/barcamp-oraga-code-rails/</guid>
+        <link>http://localhost:4000/barcamp-oraga-code-rails/</link>
+        <guid isPermaLink="true">http://localhost:4000/barcamp-oraga-code-rails/</guid>
         
         
       </item>
@@ -487,49 +551,8 @@ StandardError: An error has occurred, all later migrations canceled:
 </description>
         
         <pubDate>Tue, 02 Feb 2016 00:00:00 +0100</pubDate>
-        <link>https://pobb.github.io/rails-association-et-inverse/</link>
-        <guid isPermaLink="true">https://pobb.github.io/rails-association-et-inverse/</guid>
-        
-        
-      </item>
-      
-    
-      
-      <item>
-        <title>Rails : la gem did_you_mean pour vous servir !</title>
-        <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;A&lt;/span&gt;ujourd’hui un petit article pour vous présenter rapidement une Gem très sympathique : &lt;strong&gt;Did you mean&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;Il est fréquent pour un développeur de faire des fautes de frappes, on peut parfois se tromper d’un caractère s’en forcément s’en rendre compte et perdre du temps… ça se termine souvent par “pfff la loose, j’ai mal écrit ma méthode” ou autre (à remplacer par la phrase qui vous convient ^^).&lt;/p&gt;
-
-&lt;p&gt;C’est là que la Gem did_you_mean peut entrer en action :&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# Gemfile&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'did_you_mean'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;group: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:development&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Un petit bundle install et c’est tout ! Le résultat ? Voici un petit exemple (réalisé pour la démo, donc un peu gros je vous l’accorde) :&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# app/models/mon_super_model.rb&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MonSuperModel&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Activerecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Base&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Cela me génère une erreur (car j’ai mal tapé ActiveRecord dans mon cas) et did_you_mean entre en jeu et me propose la bonne syntaxe :&lt;/p&gt;
-
-&lt;figure&gt;
-  &lt;img src=&quot;/assets/img/post-screen_didyoumean.png&quot; alt=&quot;&quot; /&gt; 
-  &lt;figcaption&gt;Fig1. - did_you_mean en action&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Et voilà, cela fonctionne dans beaucoup de cas je vous laisse découvrir plus en détails la Gem sur la page Github &lt;a href=&quot;https://github.com/yuki24/did_you_mean&quot; target=&quot;_blank&quot;&gt;github.com/yuki24/did_you_mean&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;&lt;small&gt;Originally published at &lt;a href=&quot;https://www.sois-net.fr/rails-la-gem-did_you_mean-pour-vous-servir/&quot; target=&quot;_blank&quot;&gt;Sois-net&lt;/a&gt;.&lt;/small&gt;&lt;/em&gt;&lt;/p&gt;
-</description>
-        
-          <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;A&lt;/span&gt;ujourd’hui un petit article pour vous présenter rapidement une Gem très sympathique : &lt;strong&gt;Did you mean&lt;/strong&gt;.&lt;/p&gt;
-
-</description>
-        
-        <pubDate>Tue, 19 Jan 2016 00:00:00 +0100</pubDate>
-        <link>https://pobb.github.io/gem-did-you-mean/</link>
-        <guid isPermaLink="true">https://pobb.github.io/gem-did-you-mean/</guid>
+        <link>http://localhost:4000/rails-association-et-inverse/</link>
+        <guid isPermaLink="true">http://localhost:4000/rails-association-et-inverse/</guid>
         
         
       </item>
