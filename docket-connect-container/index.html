@@ -9,12 +9,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <title>PageSpeed insight : analyse en ligne suffisante ?</title>
+    <title>Docket : connect to your docker's container easily !</title>
 
     <!-- Open Graph Meta -->
     <meta content="[ Pob's corner ]" property="og:site_name">
     
-      <meta content="PageSpeed insight : analyse en ligne suffisante ?" property="og:title">
+      <meta content="Docket : connect to your docker's container easily !" property="og:title">
     
     
       <meta content="article" property="og:type">
@@ -23,10 +23,10 @@
       <meta content="Another tech blog" property="og:description">
     
     
-      <meta content="https://pobb.github.io/pagespeed-suffisant/" property="og:url">
+      <meta content="https://pobb.github.io/docket-connect-container/" property="og:url">
     
     
-      <meta content="2015-03-25T00:00:00+01:00" property="article:published_time">
+      <meta content="2020-03-05T00:00:00+01:00" property="article:published_time">
       <meta content="https://pobb.github.io/about/" property="article:author">
     
 
@@ -35,10 +35,10 @@
     <meta name="twitter:site" content="@poblouin">
     <meta name="twitter:creator" content="@poblouin">
     
-      <meta name="twitter:title" content="PageSpeed insight : analyse en ligne suffisante ?">
+      <meta name="twitter:title" content="Docket : connect to your docker's container easily !">
     
     
-      <meta name="twitter:url" content="https://pobb.github.io/pagespeed-suffisant/">
+      <meta name="twitter:url" content="https://pobb.github.io/docket-connect-container/">
     
     
       <meta name="twitter:description" content="Another tech blog">
@@ -58,7 +58,7 @@
     <link rel="stylesheet" href="/assets/css/style.css">
     <!--[if IE 8]><link rel="stylesheet" href="/assets/css/ie.css"><![endif]-->
     
-    <link rel="canonical" href="https://www.sois-net.fr/pagespeed-insight-analyse-en-ligne-suffisante/"/>
+    <link rel="canonical" href="https://dev.to/pobb/docket-connect-to-your-docker-s-container-easily-10gc"/>
     
 
     <!-- Modernizr -->
@@ -98,33 +98,38 @@
       <div class="container">
          <div class="post">
   
-  <h1 class="postTitle">PageSpeed insight : analyse en ligne suffisante ?</h1>
-  <p class="meta">March 25, 2015 | <span class="time">1</span> Minute Read</p>
+  <h1 class="postTitle">Docket : connect to your docker's container easily !</h1>
+  <p class="meta">March 05, 2020 | <span class="time">1</span> Minute Read</p>
   
-  <p class="intro"><span class="dropcap">P</span>ageSpeed Insights est un ensemble d’outils conçus par Google permettant d’optimiser les performances d’un site internet pour PC et mobiles. Cette famille d’outils se compose de modules pour analyser un site (diagnostic) et pour optimiser les performances de celui-ci.</p>
+  <p class="intro"><span class="dropcap">I</span>'ll introduce you today a tool helping you to connect to docker containers quickly and easily using CLI.</p>
 
-<p>Ces outils ne listent pas la totalité des choses à faire ou ne pas faire mais en donnent une bonne partie. Google vous recommande donc de suivre ses conseils mais cela ne veut pas dire que votre site sera parfait et irréprochable en respectant à la lettre ces derniers.</p>
+<p>The current docker way you already know is simple. If you want to connect to one of your running containers, you have to execute “<strong>docker ps</strong>” command, listing all your (<em>running</em>) containers informations.</p>
 
-<p>Dans notre cas l’ <a href="https://developers.google.com/speed/pagespeed/insights/" target="_blank">analyse en ligne</a> (<em>diagnostic</em>) nous retourne des <strong>indicateurs</strong> et des données très intéressante que nous nous devons de maitriser. Cela nous permet entre autre d’adopter de bonnes pratiques de développement pour réduire le temps de chargement d’une page, compresser nos images et nos différents fichiers (css, js), et de réduire le temps de chargement de nos pages (problème majeur pris en compte depuis l’arrivée des mobiles qui surfent via des petites connexions 3G).</p>
+<p>Next you have to execute “<strong>docker exec -it my_container bash</strong>” command. This will connect you in your container to a bash session.</p>
 
-<p>Nous nous chargeons donc d’optimiser manuellement notre code source en fonction des retours pour coller au mieux à ces recommandations. L’<a href="https://developers.google.com/speed/pagespeed/optimization" target="_blank">optimisation</a> proposée par le biais d’un module à installer directement sur le serveur ou d’un service semble très intéressante mais nous n’estimons pas nécessaire de l’intégrer sur nos serveurs (lourd à mettre en place, beaucoup de configurations à effectuer avec la notion de filtres, futur service payant ?). Il sera intéressant tout de même d’analyser dans le futur le chemin choisi par Google en proposant ce genre de services (payants ?) pour contrôler au mieux les sites.</p>
+<p>Every time I use the “docker ps” command, I get a long and large table. Unreadable if your terminal is not with 6px font-size .. On my terminal it looks like this :</p>
 
-<p>Nous allons donc continuer à utiliser l’analyse en ligne qui nous a notamment permis de mieux aborder certaines notions comme l’expérience utilisateur sur les mobiles, la compression de fichiers et d’images, l’importance de la ligne de flottaison, le format (px) des images en fonction du terminal source, le cache, le nombre de requêtes HTTP effectués etc.</p>
+<p><img src="https://i.imgur.com/Dkc2VgY.png" alt="docker ps command" /></p>
 
-<p><em><small>Originally published at <a href="https://www.sois-net.fr/pagespeed-insight-analyse-en-ligne-suffisante/" target="_blank">Sois-net</a>.</small></em></p>
+<p>Not really easy to read. But because I hate loose my time and love to find funny’s solutions, I tried to develop a script that automatically get all containers available in “docker ps” command, only displaying “name” in a list option. I just have to select the right one with my keyboard, and it give me the good bash session, that’s all !</p>
+
+<h2 id="docket--docker-in-your-pocket-">Docket : docker in your pocket !</h2>
+<p>That’s why Docket is born : in a few lines of bash or ruby (<em>maybe one day it will be available in python too</em>), job is done !</p>
+
+<p><img src="http://g.recordit.co/vN2zEXCrgw.gif" alt="Recordit GIF" /></p>
+
+<p>All of my mates that saw it on my computer just asked to use it, so maybe it will be useful to you too! Go on the <a href="https://github.com/Pobb/docket">GitHub project</a> for setup instructions. You just have to download script (bash or ruby, as you want), and execute it. For more comfortable use, you can create an alias.</p>
+
+<p><em><small>Originally published at <a href="https://dev.to/pobb/docket-connect-to-your-docker-s-container-easily-10gc" target="_blank">Dev.to</a>.</small></em></p>
 
 
   <!-- POST NAVIGATION -->
   <div class="postNav clearfix">
      
-      <a class="prev" href="/rails-nested-formulaire-dynamique/"><span>&laquo;&nbsp;Rails & nested_attributes : un formulaire dynamique ?</span>
+      <a class="prev" href="/gem-invisible-captcha/"><span>&laquo;&nbsp;Invisible Captcha : how to avoid spam in Rails</span>
       
     </a>
       
-      
-      <a class="next" href="/images-rwd-seo-chargement-fichier/"><span>Images, RWD & SEO : comment charger le fichier adéquat ?&nbsp;&raquo;</span>
-       
-      </a>
      
   </div>
 </div>

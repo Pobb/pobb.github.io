@@ -3,11 +3,48 @@
   <channel>
     <title>[ Pob's corner ]</title>
     <description>Another tech blog</description>
-    <link>http://localhost:4000/</link>
-    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 01 Mar 2020 20:07:55 +0100</pubDate>
-    <lastBuildDate>Sun, 01 Mar 2020 20:07:55 +0100</lastBuildDate>
+    <link>https://pobb.github.io/</link>
+    <atom:link href="https://pobb.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Thu, 05 Mar 2020 18:57:39 +0100</pubDate>
+    <lastBuildDate>Thu, 05 Mar 2020 18:57:39 +0100</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+      
+      <item>
+        <title>Docket : connect to your docker's container easily !</title>
+        <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;I&lt;/span&gt;'ll introduce you today a tool helping you to connect to docker containers quickly and easily using CLI.&lt;/p&gt;
+
+&lt;p&gt;The current docker way you already know is simple. If you want to connect to one of your running containers, you have to execute “&lt;strong&gt;docker ps&lt;/strong&gt;” command, listing all your (&lt;em&gt;running&lt;/em&gt;) containers informations.&lt;/p&gt;
+
+&lt;p&gt;Next you have to execute “&lt;strong&gt;docker exec -it my_container bash&lt;/strong&gt;” command. This will connect you in your container to a bash session.&lt;/p&gt;
+
+&lt;p&gt;Every time I use the “docker ps” command, I get a long and large table. Unreadable if your terminal is not with 6px font-size .. On my terminal it looks like this :&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/Dkc2VgY.png&quot; alt=&quot;docker ps command&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Not really easy to read. But because I hate loose my time and love to find funny’s solutions, I tried to develop a script that automatically get all containers available in “docker ps” command, only displaying “name” in a list option. I just have to select the right one with my keyboard, and it give me the good bash session, that’s all !&lt;/p&gt;
+
+&lt;h2 id=&quot;docket--docker-in-your-pocket-&quot;&gt;Docket : docker in your pocket !&lt;/h2&gt;
+&lt;p&gt;That’s why Docket is born : in a few lines of bash or ruby (&lt;em&gt;maybe one day it will be available in python too&lt;/em&gt;), job is done !&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://g.recordit.co/vN2zEXCrgw.gif&quot; alt=&quot;Recordit GIF&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;All of my mates that saw it on my computer just asked to use it, so maybe it will be useful to you too! Go on the &lt;a href=&quot;https://github.com/Pobb/docket&quot;&gt;GitHub project&lt;/a&gt; for setup instructions. You just have to download script (bash or ruby, as you want), and execute it. For more comfortable use, you can create an alias.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;small&gt;Originally published at &lt;a href=&quot;https://dev.to/pobb/docket-connect-to-your-docker-s-container-easily-10gc&quot; target=&quot;_blank&quot;&gt;Dev.to&lt;/a&gt;.&lt;/small&gt;&lt;/em&gt;&lt;/p&gt;
+</description>
+        
+          <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;I&lt;/span&gt;'ll introduce you today a tool helping you to connect to docker containers quickly and easily using CLI.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Thu, 05 Mar 2020 00:00:00 +0100</pubDate>
+        <link>https://pobb.github.io/docket-connect-container/</link>
+        <guid isPermaLink="true">https://pobb.github.io/docket-connect-container/</guid>
+        
+        
+      </item>
+      
     
       
       <item>
@@ -66,8 +103,8 @@
 </description>
         
         <pubDate>Sun, 01 Mar 2020 00:00:00 +0100</pubDate>
-        <link>http://localhost:4000/gem-invisible-captcha/</link>
-        <guid isPermaLink="true">http://localhost:4000/gem-invisible-captcha/</guid>
+        <link>https://pobb.github.io/gem-invisible-captcha/</link>
+        <guid isPermaLink="true">https://pobb.github.io/gem-invisible-captcha/</guid>
         
         
       </item>
@@ -111,8 +148,8 @@
 </description>
         
         <pubDate>Mon, 09 Jan 2017 00:00:00 +0100</pubDate>
-        <link>http://localhost:4000/draw-io-copie/</link>
-        <guid isPermaLink="true">http://localhost:4000/draw-io-copie/</guid>
+        <link>https://pobb.github.io/draw-io-copie/</link>
+        <guid isPermaLink="true">https://pobb.github.io/draw-io-copie/</guid>
         
         
       </item>
@@ -151,8 +188,8 @@
 </description>
         
         <pubDate>Tue, 29 Nov 2016 00:00:00 +0100</pubDate>
-        <link>http://localhost:4000/animate-css/</link>
-        <guid isPermaLink="true">http://localhost:4000/animate-css/</guid>
+        <link>https://pobb.github.io/animate-css/</link>
+        <guid isPermaLink="true">https://pobb.github.io/animate-css/</guid>
         
         
       </item>
@@ -227,8 +264,8 @@ rails db:migrate
 </description>
         
         <pubDate>Mon, 17 Oct 2016 00:00:00 +0200</pubDate>
-        <link>http://localhost:4000/rails-bdd-utf8mb4/</link>
-        <guid isPermaLink="true">http://localhost:4000/rails-bdd-utf8mb4/</guid>
+        <link>https://pobb.github.io/rails-bdd-utf8mb4/</link>
+        <guid isPermaLink="true">https://pobb.github.io/rails-bdd-utf8mb4/</guid>
         
         
       </item>
@@ -271,8 +308,8 @@ rails db:migrate
 </description>
         
         <pubDate>Wed, 24 Aug 2016 00:00:00 +0200</pubDate>
-        <link>http://localhost:4000/sublime-select-mot/</link>
-        <guid isPermaLink="true">http://localhost:4000/sublime-select-mot/</guid>
+        <link>https://pobb.github.io/sublime-select-mot/</link>
+        <guid isPermaLink="true">https://pobb.github.io/sublime-select-mot/</guid>
         
         
       </item>
@@ -326,8 +363,8 @@ StandardError: An error has occurred, all later migrations canceled:
 </description>
         
         <pubDate>Wed, 04 May 2016 00:00:00 +0200</pubDate>
-        <link>http://localhost:4000/rails-migration-nom-long/</link>
-        <guid isPermaLink="true">http://localhost:4000/rails-migration-nom-long/</guid>
+        <link>https://pobb.github.io/rails-migration-nom-long/</link>
+        <guid isPermaLink="true">https://pobb.github.io/rails-migration-nom-long/</guid>
         
         
       </item>
@@ -361,8 +398,8 @@ StandardError: An error has occurred, all later migrations canceled:
 </description>
         
         <pubDate>Tue, 12 Apr 2016 00:00:00 +0200</pubDate>
-        <link>http://localhost:4000/recuperer-toutes-urls/</link>
-        <guid isPermaLink="true">http://localhost:4000/recuperer-toutes-urls/</guid>
+        <link>https://pobb.github.io/recuperer-toutes-urls/</link>
+        <guid isPermaLink="true">https://pobb.github.io/recuperer-toutes-urls/</guid>
         
         
       </item>
@@ -395,8 +432,8 @@ StandardError: An error has occurred, all later migrations canceled:
 </description>
         
         <pubDate>Thu, 31 Mar 2016 00:00:00 +0200</pubDate>
-        <link>http://localhost:4000/barcamp-rails5/</link>
-        <guid isPermaLink="true">http://localhost:4000/barcamp-rails5/</guid>
+        <link>https://pobb.github.io/barcamp-rails5/</link>
+        <guid isPermaLink="true">https://pobb.github.io/barcamp-rails5/</guid>
         
         
       </item>
@@ -442,117 +479,8 @@ StandardError: An error has occurred, all later migrations canceled:
 </description>
         
         <pubDate>Fri, 25 Mar 2016 00:00:00 +0100</pubDate>
-        <link>http://localhost:4000/barcamp-oraga-code-rails/</link>
-        <guid isPermaLink="true">http://localhost:4000/barcamp-oraga-code-rails/</guid>
-        
-        
-      </item>
-      
-    
-      
-      <item>
-        <title>Rails : association &amp; inverse sur un même objet</title>
-        <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;N&lt;/span&gt;ous venons de rencontrer un cas bien particulier (mais pas tant que ça finalement) lors d’un récent développement. Nous avons un objet Produit et nous souhaitons l’associer à un autre produit en vue de répondre au besoin &quot;tel produit est associé à tel produit&quot;.&lt;/p&gt;
-
-&lt;p&gt;Jusque ici rien de compliqué. Cependant si l’on rentre un peu plus dans le détail et dans la demande qui nous a été formulée, on se rend compte que l’on a finalement besoin de : “Si j’associe mon produit A au produit B, est-ce que le produit B sera automatiquement associé au produit A ?” . La réponse est non, mais nous allons faire en sorte d’y répondre favorablement.&lt;/p&gt;
-
-&lt;p&gt;On crée nos tables produits et produit_associes, puis les modèles qui vont avec :&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# ruby2 / rails4.0&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# db/migrate/1...&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;change&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;create_table&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:produits&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:intitule&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:description&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;# etc.&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;timestamps&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
- 
-&lt;span class=&quot;c1&quot;&gt;# db/migrate/2...&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;change&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;create_table&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:produit_associes&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;integer&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:pdt_origine_id&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;integer&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:pdt_associe_id&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;timestamps&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
- 
-&lt;span class=&quot;c1&quot;&gt;# app/models/produit.rb&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Produit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Base&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;has_many&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:associes_pdts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;foreign_key: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;pdt_origine_id&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;class_name: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ProduitAssocie&quot;&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;has_many&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:associes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;through: :associes_pdts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;source: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;pdt_associe&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;dependent: :destroy&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
- 
-&lt;span class=&quot;c1&quot;&gt;# app/models/produit_associe.rb&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ProduitAssocie&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Base&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;belongs_to&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:pdt_associe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;foreign_key: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;pdt_associe_id&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;class_name: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Produit&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Si l’on teste déjà cela dans une console (avec des données en base) on obtient ceci :&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-irb&quot; data-lang=&quot;irb&quot;&gt;&lt;span class=&quot;go&quot;&gt;p1 = Produit.find(1)
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;#&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Produit&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;id: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;intitule: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Mon produit 1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;description: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Hello world ..&quot;&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;p2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Produit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;#&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Produit&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;id: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;intitule: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2d produit&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;description: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Bla bla ..&quot;&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;p1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;associes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p2&lt;/span&gt;
- 
-&lt;span class=&quot;n&quot;&gt;p1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;associes&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;#&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Associations&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;CollectionProxy&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;#&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Produit&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;id: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;intitule: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2d produit&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;description: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Bla bla ..&quot;&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;p2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;associes&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;#&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Associations&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;CollectionProxy&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;On remarque donc que nous avons pu associer le produit 2 à notre produit 1, que lorsque nous interrogeons p1.associes il nous retourne bien le produit 2. Dans le cas inverse (p2.associes) le tableau est vide, et nous voulons qu’automatiquement p2 match avec p1 sur cette association inverse.&lt;/p&gt;
-
-&lt;p&gt;Pour cela nous allons modifier notre modèle produit_associe et lui indiquer d’enregistrer (ou supprimer) l’inverse de l’association créée/détruite :&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# app/models/produit_associe.rb&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ProduitAssocie&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Base&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;belongs_to&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:pdt_associe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;foreign_key: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;pdt_associe_id&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;class_name: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Produit&quot;&lt;/span&gt;
- 
-  &lt;span class=&quot;n&quot;&gt;after_create&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:create_inverse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;unless: :has_inverse?&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;after_destroy&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:destroy_inverses&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;if: :has_inverse?&lt;/span&gt;
- 
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;create_inverse&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;inverse_produit_assoc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
- 
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;destroy_inverses&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;inverses&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;destroy_all&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
- 
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;has_inverse?&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;exists?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;inverse_produit_assoc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
- 
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;inverses&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;where&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;inverse_produit_assoc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
- 
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;inverse_produit_assoc&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;pdt_origine_id: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pdt_associe_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;pdt_associe_id: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pdt_origine_id&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Si l’on reteste en console on obtient désormais :&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-irb&quot; data-lang=&quot;irb&quot;&gt;&lt;span class=&quot;go&quot;&gt;p1.associes
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;#&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Associations&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;CollectionProxy&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;#&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Produit&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;id: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;intitule: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2d produit&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;description: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Bla bla ..&quot;&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;p2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;associes&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;#&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Associations&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;CollectionProxy&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;#&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Produit&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;id: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;intitule: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Mon produit 1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;description: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Hello world ..&quot;&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Dès lors que l’on associe un produit à un autre, on crée l’association inverse automatiquement. L’ajout de “dependent: :destroy” dans le modèle Produit nous permettra de faire la même chose lorsque l’on supprimera l’une des deux associations existantes.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;&lt;small&gt;Originally published at &lt;a href=&quot;https://www.sois-net.fr/rails-association-bi-directionnelle-sur-un-meme-objet/&quot; target=&quot;_blank&quot;&gt;Sois-net&lt;/a&gt;.&lt;/small&gt;&lt;/em&gt;&lt;/p&gt;
-</description>
-        
-          <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;N&lt;/span&gt;ous venons de rencontrer un cas bien particulier (mais pas tant que ça finalement) lors d’un récent développement. Nous avons un objet Produit et nous souhaitons l’associer à un autre produit en vue de répondre au besoin &quot;tel produit est associé à tel produit&quot;.&lt;/p&gt;
-
-</description>
-        
-        <pubDate>Tue, 02 Feb 2016 00:00:00 +0100</pubDate>
-        <link>http://localhost:4000/rails-association-et-inverse/</link>
-        <guid isPermaLink="true">http://localhost:4000/rails-association-et-inverse/</guid>
+        <link>https://pobb.github.io/barcamp-oraga-code-rails/</link>
+        <guid isPermaLink="true">https://pobb.github.io/barcamp-oraga-code-rails/</guid>
         
         
       </item>
