@@ -1,18 +1,51 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>[ Pob's corner ]</title>
-    <description>Another tech blog</description>
-    <link>https://pobb.github.io/</link>
-    <atom:link href="https://pobb.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 05 Mar 2020 18:57:39 +0100</pubDate>
-    <lastBuildDate>Thu, 05 Mar 2020 18:57:39 +0100</lastBuildDate>
-    <generator>Jekyll v3.8.5</generator>
-    
-      
-      <item>
-        <title>Docket : connect to your docker's container easily !</title>
-        <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;I&lt;/span&gt;'ll introduce you today a tool helping you to connect to docker containers quickly and easily using CLI.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2020-05-03T12:49:43-05:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">[ Pob’s corner ]</title><subtitle>Another tech blog</subtitle><entry><title type="html">Create rails app using docker in 5 steps</title><link href="http://0.0.0.0:4000/create-new-rails-app-using-docker/" rel="alternate" type="text/html" title="Create rails app using docker in 5 steps" /><published>2020-05-03T00:00:00-05:00</published><updated>2020-05-03T00:00:00-05:00</updated><id>http://0.0.0.0:4000/create-new-rails-app-using-docker</id><content type="html" xml:base="http://0.0.0.0:4000/create-new-rails-app-using-docker/">&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;I&lt;/span&gt;f you want to create a new Rails application using docker, and keep it simple, these lines will help you.&lt;/p&gt;
+
+&lt;p&gt;Why docker ? Why no rvm or rbenv ? In the past I used to work with rvm, helping me to manage multiple ruby / rails projects. I move to docker recently not to deploy an app to this beautiful cloud (&lt;em&gt;choose one you want&lt;/em&gt;), but to create a developer environment. This is not the first purpose of docker, but it help a lot.&lt;/p&gt;
+
+&lt;p&gt;I don’t need to install all of my ruby versions on my computer, not all postgresql / mysql / mariadb versions of all projects I work on, not all dependencies etc. that can conflicts between them. I can choose which unix to use (&lt;em&gt;it depend on images&lt;/em&gt;) and get closer to production env. Docker is faster on Linux, i’m on Mac, it’s a little bit slower but it’s fine.&lt;/p&gt;
+
+&lt;p&gt;So let’s create a new rails app using docker, and keep it really simple. We will take an example for a standard rails 6 app using a postgresql database.&lt;/p&gt;
+
+&lt;h2 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Docker&lt;/li&gt;
+  &lt;li&gt;Docker-compose&lt;/li&gt;
+  &lt;li&gt;Internet connection (&lt;em&gt;download docker’s images take time ..&lt;/em&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;5-steps&quot;&gt;5 steps&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;Clone this project (&lt;em&gt;it contains 3 files&lt;/em&gt;) : &lt;a href=&quot;https://github.com/Pobb/docker-rails&quot; target=&quot;_blank&quot;&gt;https://github.com/Pobb/docker-rails&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;docker-compose build&lt;/li&gt;
+  &lt;li&gt;docker-compose run web rails new . –force –no-deps –database=postgresql –no-documentation&lt;/li&gt;
+  &lt;li&gt;Edit config/database.yml and add :
+    &lt;ul&gt;
+      &lt;li&gt;host: db&lt;/li&gt;
+      &lt;li&gt;username: “postgres”&lt;/li&gt;
+      &lt;li&gt;password: “postgres”&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;docker-compose up&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Visit &lt;code class=&quot;highlighter-rouge&quot;&gt;http://localhost:4000&lt;/code&gt; and you are done !&lt;/p&gt;
+
+&lt;h2 id=&quot;some-explanations&quot;&gt;Some explanations&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;docker-compose build&lt;/strong&gt; will create docker image on your computer using our &lt;code class=&quot;highlighter-rouge&quot;&gt;Dockerfile&lt;/code&gt;. As you can see our Dockerfile is really simple. First we use official ruby image from docker hub . Next we just install some dev tools. Biggest part concern &lt;strong&gt;yarn&lt;/strong&gt; : we use &lt;code class=&quot;highlighter-rouge&quot;&gt;Rails 6&lt;/code&gt; in our example, needing webpack etc. We have to setup Yarn. Next we install rails using &lt;code class=&quot;highlighter-rouge&quot;&gt;gem install&lt;/code&gt;command.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Create our rails app :&lt;/strong&gt; in our docker-compose file we can see that we declare a &lt;code class=&quot;highlighter-rouge&quot;&gt;web&lt;/code&gt; service. We will use image we just builded and launch our classical rails new command. We mention &lt;strong&gt;rails new .&lt;/strong&gt; to create app in our current folder.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Edit config/database :&lt;/strong&gt; In our docker-compose file we can see that our &lt;code class=&quot;highlighter-rouge&quot;&gt;db&lt;/code&gt;service use postgres’s image. Here we want something really simple. By default, username and password are set to “postgres”. So mention it in your &lt;code class=&quot;highlighter-rouge&quot;&gt;database.yml&lt;/code&gt; file.  Host is &lt;strong&gt;db&lt;/strong&gt; : just mention it like it without quotes. It’s our &lt;code class=&quot;highlighter-rouge&quot;&gt;db&lt;/code&gt; service name we choose in docker-compose file.&lt;/p&gt;
+
+&lt;h2 id=&quot;some-tips&quot;&gt;Some tips&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;We use volontary latest ruby version in our example (&lt;em&gt;first line of Dockerfile&lt;/em&gt;), but I suggest you to fix your ruby version using appropriate docker image. You will find it on docker-hub website.&lt;/li&gt;
+  &lt;li&gt;As for ruby, I suggest you to precise rails version when you “gem install rails”&lt;/li&gt;
+  &lt;li&gt;You can create a docker folder and move our 3 files in (&lt;em&gt;careful to change path in Dockerfile and docker-compose.yml&lt;/em&gt;)&lt;/li&gt;
+  &lt;li&gt;I suggest you to use ENV variable to put your user and password into database.yml file.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;small&gt;Sources &lt;a href=&quot;https://github.com/Pobb/docker-rails&quot; target=&quot;_blank&quot;&gt;Github project&lt;/a&gt;&lt;/small&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">If you want to create a new Rails application using docker, and keep it simple, these lines will help you.</summary></entry><entry><title type="html">Docket : connect to your docker’s container easily !</title><link href="http://0.0.0.0:4000/docket-connect-container/" rel="alternate" type="text/html" title="Docket : connect to your docker's container easily !" /><published>2020-03-05T00:00:00-06:00</published><updated>2020-03-05T00:00:00-06:00</updated><id>http://0.0.0.0:4000/docket-connect-container</id><content type="html" xml:base="http://0.0.0.0:4000/docket-connect-container/">&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;I&lt;/span&gt;'ll introduce you today a tool helping you to connect to docker containers quickly and easily using CLI.&lt;/p&gt;
 
 &lt;p&gt;The current docker way you already know is simple. If you want to connect to one of your running containers, you have to execute “&lt;strong&gt;docker ps&lt;/strong&gt;” command, listing all your (&lt;em&gt;running&lt;/em&gt;) containers informations.&lt;/p&gt;
 
@@ -31,25 +64,7 @@
 
 &lt;p&gt;All of my mates that saw it on my computer just asked to use it, so maybe it will be useful to you too! Go on the &lt;a href=&quot;https://github.com/Pobb/docket&quot;&gt;GitHub project&lt;/a&gt; for setup instructions. You just have to download script (bash or ruby, as you want), and execute it. For more comfortable use, you can create an alias.&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;&lt;small&gt;Originally published at &lt;a href=&quot;https://dev.to/pobb/docket-connect-to-your-docker-s-container-easily-10gc&quot; target=&quot;_blank&quot;&gt;Dev.to&lt;/a&gt;.&lt;/small&gt;&lt;/em&gt;&lt;/p&gt;
-</description>
-        
-          <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;I&lt;/span&gt;'ll introduce you today a tool helping you to connect to docker containers quickly and easily using CLI.&lt;/p&gt;
-
-</description>
-        
-        <pubDate>Thu, 05 Mar 2020 00:00:00 +0100</pubDate>
-        <link>https://pobb.github.io/docket-connect-container/</link>
-        <guid isPermaLink="true">https://pobb.github.io/docket-connect-container/</guid>
-        
-        
-      </item>
-      
-    
-      
-      <item>
-        <title>Invisible Captcha : how to avoid spam in Rails</title>
-        <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;I&lt;/span&gt;f you got a public website and you got a form that can be edited from users (like a contact form for example), you will get spammed every day. How to deal with it ?&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;small&gt;Originally published at &lt;a href=&quot;https://dev.to/pobb/docket-connect-to-your-docker-s-container-easily-10gc&quot; target=&quot;_blank&quot;&gt;Dev.to&lt;/a&gt;.&lt;/small&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">I'll introduce you today a tool helping you to connect to docker containers quickly and easily using CLI.</summary></entry><entry><title type="html">Invisible Captcha : how to avoid spam in Rails</title><link href="http://0.0.0.0:4000/gem-invisible-captcha/" rel="alternate" type="text/html" title="Invisible Captcha : how to avoid spam in Rails" /><published>2020-03-01T00:00:00-06:00</published><updated>2020-03-01T00:00:00-06:00</updated><id>http://0.0.0.0:4000/gem-invisible-captcha</id><content type="html" xml:base="http://0.0.0.0:4000/gem-invisible-captcha/">&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;I&lt;/span&gt;f you got a public website and you got a form that can be edited from users (like a contact form for example), you will get spammed every day. How to deal with it ?&lt;/p&gt;
 
 &lt;p&gt;Spambots become stronger day after day. When we dev a new form we have to deal with security to avoir injections, but sometimes we have to avoid with spam. Imagine you got a website with a contact form, how will you do to stop spambots ?&lt;/p&gt;
 
@@ -95,25 +110,7 @@
 
 &lt;p&gt;You can choose to params this honeypot’s gem with many options, like custom the name of the field, choose what do to with callback etc.&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;&lt;small&gt;Github &lt;a href=&quot;https://github.com/markets/invisible_captcha&quot; target=&quot;_blank&quot;&gt;invisible-captcha&lt;/a&gt;&lt;/small&gt;&lt;/em&gt;&lt;/p&gt;
-</description>
-        
-          <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;I&lt;/span&gt;f you got a public website and you got a form that can be edited from users (like a contact form for example), you will get spammed every day. How to deal with it ?&lt;/p&gt;
-
-</description>
-        
-        <pubDate>Sun, 01 Mar 2020 00:00:00 +0100</pubDate>
-        <link>https://pobb.github.io/gem-invisible-captcha/</link>
-        <guid isPermaLink="true">https://pobb.github.io/gem-invisible-captcha/</guid>
-        
-        
-      </item>
-      
-    
-      
-      <item>
-        <title>Draw.io : un outil pour réaliser des organigrammes et des diagrammes</title>
-        <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;P&lt;/span&gt;our réaliser un schéma, un organigramme ou un diagramme, qu’il soit conséquent ou très petit, c’est parfois compliqué. Quel logiciel vais-je devoir télécharger, comment s’en sert-on, est-ce que le rendu visuel sera facilement exportable et surtout présentable ? &quot;Je veux juste faire une patate et un carré avec une flèche !&quot;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;small&gt;Github &lt;a href=&quot;https://github.com/markets/invisible_captcha&quot; target=&quot;_blank&quot;&gt;invisible-captcha&lt;/a&gt;&lt;/small&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">If you got a public website and you got a form that can be edited from users (like a contact form for example), you will get spammed every day. How to deal with it ?</summary></entry><entry><title type="html">Draw.io : un outil pour réaliser des organigrammes et des diagrammes</title><link href="http://0.0.0.0:4000/draw-io-copie/" rel="alternate" type="text/html" title="Draw.io : un outil pour réaliser des organigrammes et des diagrammes" /><published>2017-01-09T00:00:00-06:00</published><updated>2017-01-09T00:00:00-06:00</updated><id>http://0.0.0.0:4000/draw-io%20copie</id><content type="html" xml:base="http://0.0.0.0:4000/draw-io-copie/">&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;P&lt;/span&gt;our réaliser un schéma, un organigramme ou un diagramme, qu’il soit conséquent ou très petit, c’est parfois compliqué. Quel logiciel vais-je devoir télécharger, comment s’en sert-on, est-ce que le rendu visuel sera facilement exportable et surtout présentable ? &quot;Je veux juste faire une patate et un carré avec une flèche !&quot;&lt;/p&gt;
 
 &lt;p&gt;Je cherchais donc un outil pour réaliser des diagrammes ou schémas un peu techniques en vue de pouvoir les “modifier” par la suite mais aussi les “présenter” à d’autres personnes (le tout sans contraintes de paiement ni d’inscription, et pourquoi pas une interface sympa et intuitive).&lt;/p&gt;
 
@@ -140,25 +137,7 @@
 
 &lt;p&gt;Pour le mode online, l’outil est compatible avec Google Drive, Dropbox et OneDrive, mais vous pourrez bien évidemment sauvegarder votre travail sur votre ordinateur.&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;&lt;small&gt;Originally published at &lt;a href=&quot;https://www.sois-net.fr/draw-io-un-outil-pour-realiser-des-organigrammes-et-des-diagrammes/&quot; target=&quot;_blank&quot;&gt;Sois-net&lt;/a&gt;.&lt;/small&gt;&lt;/em&gt;&lt;/p&gt;
-</description>
-        
-          <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;P&lt;/span&gt;our réaliser un schéma, un organigramme ou un diagramme, qu’il soit conséquent ou très petit, c’est parfois compliqué. Quel logiciel vais-je devoir télécharger, comment s’en sert-on, est-ce que le rendu visuel sera facilement exportable et surtout présentable ? &quot;Je veux juste faire une patate et un carré avec une flèche !&quot;&lt;/p&gt;
-
-</description>
-        
-        <pubDate>Mon, 09 Jan 2017 00:00:00 +0100</pubDate>
-        <link>https://pobb.github.io/draw-io-copie/</link>
-        <guid isPermaLink="true">https://pobb.github.io/draw-io-copie/</guid>
-        
-        
-      </item>
-      
-    
-      
-      <item>
-        <title>A la découverte d’animate.css</title>
-        <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;A&lt;/span&gt;ujourd’hui petite présentation d’animate.css, une feuille de style CSS permettant d’animer des éléments de notre DOM, à l’aide des animations CSS3.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;small&gt;Originally published at &lt;a href=&quot;https://www.sois-net.fr/draw-io-un-outil-pour-realiser-des-organigrammes-et-des-diagrammes/&quot; target=&quot;_blank&quot;&gt;Sois-net&lt;/a&gt;.&lt;/small&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Pour réaliser un schéma, un organigramme ou un diagramme, qu’il soit conséquent ou très petit, c’est parfois compliqué. Quel logiciel vais-je devoir télécharger, comment s’en sert-on, est-ce que le rendu visuel sera facilement exportable et surtout présentable ? &quot;Je veux juste faire une patate et un carré avec une flèche !&quot;</summary></entry><entry><title type="html">A la découverte d’animate.css</title><link href="http://0.0.0.0:4000/animate-css/" rel="alternate" type="text/html" title="A la découverte d’animate.css" /><published>2016-11-29T00:00:00-06:00</published><updated>2016-11-29T00:00:00-06:00</updated><id>http://0.0.0.0:4000/animate-css</id><content type="html" xml:base="http://0.0.0.0:4000/animate-css/">&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;A&lt;/span&gt;ujourd’hui petite présentation d’animate.css, une feuille de style CSS permettant d’animer des éléments de notre DOM, à l’aide des animations CSS3.&lt;/p&gt;
 
 &lt;p&gt;Pour avoir un aperçu de ce que cela donne, rendez-vous sur le site officiel : &lt;a href=&quot;https://daneden.github.io/animate.css/&quot; target=&quot;_blank&quot;&gt;animate.css&lt;/a&gt;.&lt;/p&gt;
 
@@ -180,25 +159,7 @@
 
 &lt;p&gt;Ce fichier nous permettra de gagner du temps à réaliser des animations CSS3 basiques que l’on pourra appliquer par exemple sur des formulaires, des slideshows ou pour donner un effet lors de l’affichage d’un contenu au scroll etc. Attention toutefois de ne pas en abuser et d’utiliser les animations à bon escient …&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;&lt;small&gt;Originally published at &lt;a href=&quot;https://www.sois-net.fr/a-la-decouverte-danimate-css/&quot; target=&quot;_blank&quot;&gt;Sois-net&lt;/a&gt;.&lt;/small&gt;&lt;/em&gt;&lt;/p&gt;
-</description>
-        
-          <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;A&lt;/span&gt;ujourd’hui petite présentation d’animate.css, une feuille de style CSS permettant d’animer des éléments de notre DOM, à l’aide des animations CSS3.&lt;/p&gt;
-
-</description>
-        
-        <pubDate>Tue, 29 Nov 2016 00:00:00 +0100</pubDate>
-        <link>https://pobb.github.io/animate-css/</link>
-        <guid isPermaLink="true">https://pobb.github.io/animate-css/</guid>
-        
-        
-      </item>
-      
-    
-      
-      <item>
-        <title>Rails : bien préparer sa BDD pour stocker des Emoji</title>
-        <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;D&lt;/span&gt;dans cet article début d’approche sur la problématique pour stocker des &quot;Emoji&quot; en BDD&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;small&gt;Originally published at &lt;a href=&quot;https://www.sois-net.fr/a-la-decouverte-danimate-css/&quot; target=&quot;_blank&quot;&gt;Sois-net&lt;/a&gt;.&lt;/small&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Aujourd’hui petite présentation d’animate.css, une feuille de style CSS permettant d’animer des éléments de notre DOM, à l’aide des animations CSS3.</summary></entry><entry><title type="html">Rails : bien préparer sa BDD pour stocker des Emoji</title><link href="http://0.0.0.0:4000/rails-bdd-utf8mb4/" rel="alternate" type="text/html" title="Rails : bien préparer sa BDD pour stocker des Emoji" /><published>2016-10-17T00:00:00-05:00</published><updated>2016-10-17T00:00:00-05:00</updated><id>http://0.0.0.0:4000/rails-bdd-utf8mb4</id><content type="html" xml:base="http://0.0.0.0:4000/rails-bdd-utf8mb4/">&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;D&lt;/span&gt;dans cet article début d’approche sur la problématique pour stocker des &quot;Emoji&quot; en BDD&lt;/p&gt;
 
 &lt;p&gt;Effectivement on pense que cela ne sert à rien de les utiliser mais le problème avec ces icônes est qu’ils sont disponibles nativement sur la plupart des claviers mobiles désormais, et donc … peuvent se retrouver dans le moteur de n’importe quel formulaire de votre site. Si vous ne gérez pas ce cas particulier, cela peut engendrer des erreurs.&lt;/p&gt;
 
@@ -256,25 +217,7 @@ rails db:migrate
 
 &lt;p&gt;&lt;em&gt;Sources : &lt;a href=&quot;https://dev.mysql.com/doc/refman/5.5/en/charset-unicode-utf8mb4.html&quot; target=&quot;_blank&quot;&gt;Documentation MySQL utf8mb4&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;&lt;small&gt;Originally published at &lt;a href=&quot;https://www.sois-net.fr/rails-bien-preparer-sa-bdd-pour-stocker-des-emoji/&quot; target=&quot;_blank&quot;&gt;Sois-net&lt;/a&gt;.&lt;/small&gt;&lt;/em&gt;&lt;/p&gt;
-</description>
-        
-          <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;D&lt;/span&gt;dans cet article début d’approche sur la problématique pour stocker des &quot;Emoji&quot; en BDD&lt;/p&gt;
-
-</description>
-        
-        <pubDate>Mon, 17 Oct 2016 00:00:00 +0200</pubDate>
-        <link>https://pobb.github.io/rails-bdd-utf8mb4/</link>
-        <guid isPermaLink="true">https://pobb.github.io/rails-bdd-utf8mb4/</guid>
-        
-        
-      </item>
-      
-    
-      
-      <item>
-        <title>Sublime Text : la sélection d’un mot ponctué en un seul clic</title>
-        <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;V&lt;/span&gt;oici une petite astuce sur l’éditeur Sublime Text pour sélectionner un mot (une variable, une fonction etc.) en double cliquant dessus même si celui-ci contient une ponctuation. Exemples :&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;small&gt;Originally published at &lt;a href=&quot;https://www.sois-net.fr/rails-bien-preparer-sa-bdd-pour-stocker-des-emoji/&quot; target=&quot;_blank&quot;&gt;Sois-net&lt;/a&gt;.&lt;/small&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Ddans cet article début d’approche sur la problématique pour stocker des &quot;Emoji&quot; en BDD</summary></entry><entry><title type="html">Sublime Text : la sélection d’un mot ponctué en un seul clic</title><link href="http://0.0.0.0:4000/sublime-select-mot/" rel="alternate" type="text/html" title="Sublime Text : la sélection d’un mot ponctué en un seul clic" /><published>2016-08-24T00:00:00-05:00</published><updated>2016-08-24T00:00:00-05:00</updated><id>http://0.0.0.0:4000/sublime-select-mot</id><content type="html" xml:base="http://0.0.0.0:4000/sublime-select-mot/">&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;V&lt;/span&gt;oici une petite astuce sur l’éditeur Sublime Text pour sélectionner un mot (une variable, une fonction etc.) en double cliquant dessus même si celui-ci contient une ponctuation. Exemples :&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# ruby&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;variable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;empty?&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
@@ -300,25 +243,7 @@ rails db:migrate
 
 &lt;p&gt;Et voilà le tour est joué ! Faites et adaptez cette manipulation sur toutes les syntaxes/extensions de fichiers Sublime souhaités.&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;&lt;small&gt;Originally published at &lt;a href=&quot;https://www.sois-net.fr/sublime-text-la-selection-dun-mot-ponctue-en-un-seul-clic/&quot; target=&quot;_blank&quot;&gt;Sois-net&lt;/a&gt;.&lt;/small&gt;&lt;/em&gt;&lt;/p&gt;
-</description>
-        
-          <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;V&lt;/span&gt;oici une petite astuce sur l’éditeur Sublime Text pour sélectionner un mot (une variable, une fonction etc.) en double cliquant dessus même si celui-ci contient une ponctuation. Exemples :&lt;/p&gt;
-
-</description>
-        
-        <pubDate>Wed, 24 Aug 2016 00:00:00 +0200</pubDate>
-        <link>https://pobb.github.io/sublime-select-mot/</link>
-        <guid isPermaLink="true">https://pobb.github.io/sublime-select-mot/</guid>
-        
-        
-      </item>
-      
-    
-      
-      <item>
-        <title>Rails : Problème d’index trop long sur une migration ?</title>
-        <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;E&lt;/span&gt;n voulant créer une table de liaison entre deux autres dans un projet, nous avons rencontré un problème avec les index. Petit récap :&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;small&gt;Originally published at &lt;a href=&quot;https://www.sois-net.fr/sublime-text-la-selection-dun-mot-ponctue-en-un-seul-clic/&quot; target=&quot;_blank&quot;&gt;Sois-net&lt;/a&gt;.&lt;/small&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Voici une petite astuce sur l’éditeur Sublime Text pour sélectionner un mot (une variable, une fonction etc.) en double cliquant dessus même si celui-ci contient une ponctuation. Exemples :</summary></entry><entry><title type="html">Rails : Problème d’index trop long sur une migration ?</title><link href="http://0.0.0.0:4000/rails-migration-nom-long/" rel="alternate" type="text/html" title="Rails : Problème d’index trop long sur une migration ?" /><published>2016-05-04T00:00:00-05:00</published><updated>2016-05-04T00:00:00-05:00</updated><id>http://0.0.0.0:4000/rails-migration-nom-long</id><content type="html" xml:base="http://0.0.0.0:4000/rails-migration-nom-long/">&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;E&lt;/span&gt;n voulant créer une table de liaison entre deux autres dans un projet, nous avons rencontré un problème avec les index. Petit récap :&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CreateCategorieCritereCategorieProduit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Migration&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;change&lt;/span&gt;
@@ -355,25 +280,7 @@ StandardError: An error has occurred, all later migrations canceled:
 
 &lt;p&gt;Et voilà !&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;&lt;small&gt;Originally published at &lt;a href=&quot;https://www.sois-net.fr/rails-probleme-dindex-trop-long-sur-une-migration/&quot; target=&quot;_blank&quot;&gt;Sois-net&lt;/a&gt;.&lt;/small&gt;&lt;/em&gt;&lt;/p&gt;
-</description>
-        
-          <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;E&lt;/span&gt;n voulant créer une table de liaison entre deux autres dans un projet, nous avons rencontré un problème avec les index. Petit récap :&lt;/p&gt;
-
-</description>
-        
-        <pubDate>Wed, 04 May 2016 00:00:00 +0200</pubDate>
-        <link>https://pobb.github.io/rails-migration-nom-long/</link>
-        <guid isPermaLink="true">https://pobb.github.io/rails-migration-nom-long/</guid>
-        
-        
-      </item>
-      
-    
-      
-      <item>
-        <title>Récupérer toutes les URLs d’un site</title>
-        <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;P&lt;/span&gt;Petite astuce pour récupérer toutes les URLs d’un site (pratique lors de la refonte d’un site ou pour le SEO) :&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;small&gt;Originally published at &lt;a href=&quot;https://www.sois-net.fr/rails-probleme-dindex-trop-long-sur-une-migration/&quot; target=&quot;_blank&quot;&gt;Sois-net&lt;/a&gt;.&lt;/small&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">En voulant créer une table de liaison entre deux autres dans un projet, nous avons rencontré un problème avec les index. Petit récap :</summary></entry><entry><title type="html">Récupérer toutes les URLs d’un site</title><link href="http://0.0.0.0:4000/recuperer-toutes-urls/" rel="alternate" type="text/html" title="Récupérer toutes les URLs d’un site" /><published>2016-04-12T00:00:00-05:00</published><updated>2016-04-12T00:00:00-05:00</updated><id>http://0.0.0.0:4000/recuperer-toutes-urls</id><content type="html" xml:base="http://0.0.0.0:4000/recuperer-toutes-urls/">&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;P&lt;/span&gt;Petite astuce pour récupérer toutes les URLs d’un site (pratique lors de la refonte d’un site ou pour le SEO) :&lt;/p&gt;
 
 &lt;h4 id=&quot;1--installer-ack&quot;&gt;1 – Installer ack&lt;/h4&gt;
 &lt;p&gt;Ack est un outil comme grep développé en Perl et qui utilise des expressions régulières. Son avantage est qu’il est puissant et complet pour les recherches.&lt;/p&gt;
@@ -390,25 +297,7 @@ StandardError: An error has occurred, all later migrations canceled:
 &lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;-nd, --no-directories     don'&lt;/span&gt;t create directories.
 &lt;span class=&quot;gp&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-np&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;--no-parent&lt;/span&gt;          don&lt;span class=&quot;s1&quot;&gt;'t ascend to the parent directory.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;&lt;em&gt;&lt;small&gt;Originally published at &lt;a href=&quot;https://www.sois-net.fr/recuperer-toutes-les-urls-dun-site-wget-ack/&quot; target=&quot;_blank&quot;&gt;Sois-net&lt;/a&gt;.&lt;/small&gt;&lt;/em&gt;&lt;/p&gt;
-</description>
-        
-          <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;P&lt;/span&gt;Petite astuce pour récupérer toutes les URLs d’un site (pratique lors de la refonte d’un site ou pour le SEO) :&lt;/p&gt;
-
-</description>
-        
-        <pubDate>Tue, 12 Apr 2016 00:00:00 +0200</pubDate>
-        <link>https://pobb.github.io/recuperer-toutes-urls/</link>
-        <guid isPermaLink="true">https://pobb.github.io/recuperer-toutes-urls/</guid>
-        
-        
-      </item>
-      
-    
-      
-      <item>
-        <title>#Barcamp : quoi de neuf sur Rails 5 avant sa sortie finale ?</title>
-        <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;N&lt;/span&gt;otre équipe développe sur Ruby on Rails depuis maintenant de nombreuses années, nous surveillons donc en permanence l’évolution du Framework. La version 5 approche à grands pas, ou en sommes-nous ?&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;small&gt;Originally published at &lt;a href=&quot;https://www.sois-net.fr/recuperer-toutes-les-urls-dun-site-wget-ack/&quot; target=&quot;_blank&quot;&gt;Sois-net&lt;/a&gt;.&lt;/small&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">PPetite astuce pour récupérer toutes les URLs d’un site (pratique lors de la refonte d’un site ou pour le SEO) :</summary></entry><entry><title type="html">#Barcamp : quoi de neuf sur Rails 5 avant sa sortie finale ?</title><link href="http://0.0.0.0:4000/barcamp-rails5/" rel="alternate" type="text/html" title="#Barcamp : quoi de neuf sur Rails 5 avant sa sortie finale ?" /><published>2016-03-31T00:00:00-05:00</published><updated>2016-03-31T00:00:00-05:00</updated><id>http://0.0.0.0:4000/barcamp-rails5</id><content type="html" xml:base="http://0.0.0.0:4000/barcamp-rails5/">&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;N&lt;/span&gt;otre équipe développe sur Ruby on Rails depuis maintenant de nombreuses années, nous surveillons donc en permanence l’évolution du Framework. La version 5 approche à grands pas, ou en sommes-nous ?&lt;/p&gt;
 
 &lt;h2 id=&quot;unordered-list&quot;&gt;Unordered List&lt;/h2&gt;
 &lt;ul&gt;
@@ -424,67 +313,4 @@ StandardError: An error has occurred, all later migrations canceled:
 
 &lt;p&gt;Pour clôturer cette petite présentation, j’ai installé un Rails 5 (beta) et développé une petite démo en utilisant ActionCable, le tout en moins de 2 heures (ce qui s’annonce très prometteur, nous y reviendrons probablement sur d’autres billets). Vivement la suite !&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;&lt;small&gt;Originally published at &lt;a href=&quot;https://www.sois-net.fr/quoi-de-neuf-sur-rails-5-avant-sa-sortie-finale/&quot; target=&quot;_blank&quot;&gt;Sois-net&lt;/a&gt;.&lt;/small&gt;&lt;/em&gt;&lt;/p&gt;
-</description>
-        
-          <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;N&lt;/span&gt;otre équipe développe sur Ruby on Rails depuis maintenant de nombreuses années, nous surveillons donc en permanence l’évolution du Framework. La version 5 approche à grands pas, ou en sommes-nous ?&lt;/p&gt;
-
-</description>
-        
-        <pubDate>Thu, 31 Mar 2016 00:00:00 +0200</pubDate>
-        <link>https://pobb.github.io/barcamp-rails5/</link>
-        <guid isPermaLink="true">https://pobb.github.io/barcamp-rails5/</guid>
-        
-        
-      </item>
-      
-    
-      
-      <item>
-        <title>#Barcamp : L’organisation du code dans Rails</title>
-        <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;D&lt;/span&gt;e nombreuses fonctionnalités sont disponibles pour bien organiser son code dans un projet Ruby on Rails, nous allons en aborder certains et comprendre quel est le rôle de chacun.&lt;/p&gt;
-
-&lt;h4 id=&quot;concerns--modules&quot;&gt;Concerns &amp;amp; modules&lt;/h4&gt;
-&lt;p&gt;Dans Rails il existe des répertoires « concerns » dans les modèles et les controllers. Cela va nous permettre de mieux organiser notre code et d’éviter parfois de dupliquer des lignes. Un concern est un « module » et non une classe, il faut s’en servir et regrouper cela par fonctionnalité, et non comme un simple endroit ou stocker des méthodes diverses et variées. Petit zoom sur ces deux termes :&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Concerns :&lt;/strong&gt; quand nos modèles partagent une information (un sujet/thème/fonctionnalité) on place cette information dans un concern. Ex: sur un site, des commentaires peuvent être ajoutés/affichés depuis un article, un produit, et cela concerne (oO) aussi la table utilisateur. On va donc créer un module commentaire dans un concerns. Si dans mon model utilisateur, commentaire, produit, article je fais un « validates mon_champ » ou un « has_many mon_truc » je vais placer tout cela également au même endroit dans un concern.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Module :&lt;/strong&gt; Un module fournit des méthodes qui seront utilisées dans plusieurs classes. C’est différent d’une classe : une classe est un objet, un module est une fonction. On peut instancier une classe, pas un module. On peut faire de l’héritage avec une classe, pas avec un module. Un module peut s’inclure dans un autre module ou dans une classe (include MonConcern en haut du fichier)&lt;/p&gt;
-
-&lt;h4 id=&quot;les-classes-abstraites&quot;&gt;Les classes abstraites&lt;/h4&gt;
-&lt;p&gt;Du fait que les modèles héritent d’Active Record, mettre en commun des méthodes d’instance entre deux modèles via une classe abstraite nécessite une configuration dans cette dernière.&lt;/p&gt;
-
-&lt;p&gt;On indiquera ainsi : self.abstract_class = true. La classe abstraire hérite d’Active Record : class Produit &amp;lt; ActiveRecord::Base. Les autres classes héritent de la classe abstraite.&lt;/p&gt;
-
-&lt;p&gt;Ruby ne supporte pas l’&lt;a href=&quot;http://marcricblog.blogspot.fr/2007/11/multiple-inheritance-mixins-and-blog_20.html&quot; target=&quot;_blank&quot;&gt;héritage multiple&lt;/a&gt;, ce qui peut être problématique. Il existe d’autres solutions pour pallier ce problème, tels que les &lt;a href=&quot;https://matt.aimonetti.net/posts/2012/07/30/ruby-class-module-mixins/&quot; target=&quot;_blank&quot;&gt;mixins&lt;/a&gt; ou les &lt;a href=&quot;http://metabates.com/2011/02/07/building-interfaces-and-abstract-classes-in-ruby/&quot; target=&quot;_blank&quot;&gt;interfaces&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Rails supporte les &lt;a href=&quot;https://robots.thoughtbot.com/whats-the-deal-with-rails-polymorphic-associations&quot; target=&quot;_blank&quot;&gt;relations polymorphiques&lt;/a&gt; entre modèles Active Record : c’est le Multiple Table Inheritance.&lt;/p&gt;
-
-&lt;h4 id=&quot;équilibre-entre-vues-partials-et-helpers&quot;&gt;Équilibre entre vues, partials et helpers&lt;/h4&gt;
-&lt;p&gt;On hésite souvent sur la manière de suivre le pattern MVC en arrivant dans les vues. Les index sont particulièrement l’endroit d’opérer des boucles contenant des requêtes, des conditions, qui ne semble pas pouvoir être réalisées ailleurs.&lt;/p&gt;
-
-&lt;p&gt;Les partials et les helpers peuvent servir le même but : factoriser du code dans une vue devenant trop longue ou nécessitant de la récursivité. La différence réside dans le langage dominant de l’un et l’autre :&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Les partials&lt;/strong&gt; sont l’endroit tout indiqué pour écrire du HTML. On peut y utiliser quelques conditions et boucles tant que l’objectif servi est de la présentation.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Les helpers&lt;/strong&gt; sont l’endroit désigné pour écrire du ruby. Une fonction doit enfermer de la logique, comme des conditions, des requêtes, et retourner quelque chose qui est inséré dans la vue. Ce n’est pas l’endroit pour construire des éléments du DOM.&lt;/p&gt;
-
-&lt;p&gt;Deux sites entrent plus dans le détails, &lt;a href=&quot;http://lkdjiin.github.io/blog/2015/03/28/pas-de-logique-dans-les-vues-rails/&quot; target=&quot;_blank&quot;&gt;en français&lt;/a&gt; et &lt;a href=&quot;https://www.toptal.com/ruby-on-rails/build-dumb-refactor-smart-ruby-on-rails#the-views&quot; target=&quot;_blank&quot;&gt;en anglais&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;&lt;small&gt;Originally published at &lt;a href=&quot;https://www.sois-net.fr/bc2016-lorganisation-du-code-dans-rails/&quot; target=&quot;_blank&quot;&gt;Sois-net&lt;/a&gt;.&lt;/small&gt;&lt;/em&gt;&lt;/p&gt;
-</description>
-        
-          <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;D&lt;/span&gt;e nombreuses fonctionnalités sont disponibles pour bien organiser son code dans un projet Ruby on Rails, nous allons en aborder certains et comprendre quel est le rôle de chacun.&lt;/p&gt;
-
-</description>
-        
-        <pubDate>Fri, 25 Mar 2016 00:00:00 +0100</pubDate>
-        <link>https://pobb.github.io/barcamp-oraga-code-rails/</link>
-        <guid isPermaLink="true">https://pobb.github.io/barcamp-oraga-code-rails/</guid>
-        
-        
-      </item>
-      
-    
-  </channel>
-</rss>
+&lt;p&gt;&lt;em&gt;&lt;small&gt;Originally published at &lt;a href=&quot;https://www.sois-net.fr/quoi-de-neuf-sur-rails-5-avant-sa-sortie-finale/&quot; target=&quot;_blank&quot;&gt;Sois-net&lt;/a&gt;.&lt;/small&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Notre équipe développe sur Ruby on Rails depuis maintenant de nombreuses années, nous surveillons donc en permanence l’évolution du Framework. La version 5 approche à grands pas, ou en sommes-nous ?</summary></entry></feed>

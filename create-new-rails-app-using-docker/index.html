@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>Create rails app using docker in 5 steps</title>
+
+    <!-- Open Graph Meta -->
+    <meta content="[ Pob's corner ]" property="og:site_name">
+    
+      <meta content="Create rails app using docker in 5 steps" property="og:title">
+    
+    
+      <meta content="article" property="og:type">
+    
+    
+      <meta content="Another tech blog" property="og:description">
+    
+    
+      <meta content="http://0.0.0.0:4000/create-new-rails-app-using-docker/" property="og:url">
+    
+    
+      <meta content="2020-05-03T00:00:00-05:00" property="article:published_time">
+      <meta content="http://0.0.0.0:4000/about/" property="article:author">
+    
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@poblouin">
+    <meta name="twitter:creator" content="@poblouin">
+    
+      <meta name="twitter:title" content="Create rails app using docker in 5 steps">
+    
+    
+      <meta name="twitter:url" content="http://0.0.0.0:4000/create-new-rails-app-using-docker/">
+    
+    
+      <meta name="twitter:description" content="Another tech blog">
+    
+    
+      <meta name="twitter:image:src" content="http://0.0.0.0:4000/assets/img/touring.jpg">
+    
+
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico" />
+
+    <!-- Come and get me RSS readers -->
+    <link rel="alternate" type="application/rss+xml" title="[ Pob's corner ]" href="http://0.0.0.0:4000/feed.xml" />
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!--[if IE 8]><link rel="stylesheet" href="/assets/css/ie.css"><![endif]-->
+    
+    <link rel="canonical" href="http://0.0.0.0:4000/create-new-rails-app-using-docker/">
+    
+
+    <!-- Modernizr -->
+    <script src="/assets/js/modernizr.custom.15390.js" type="text/javascript"></script>
+
+    
+</head>
+
+
+<body>
+
+    <div class="header">
+     <div class="container">
+         <h1 class="logo"><a href="/">[ Pob's corner ]</a></h1>
+         <nav class="nav-collapse">
+             <ul class="noList">
+                 
+                 <li class="element first  ">
+                     <a href="/index.html">Home</a>
+                 </li> 
+                 
+                 <li class="element   ">
+                     <a href="/about">About</a>
+                 </li> 
+                 
+                 <li class="element   last">
+                     <a href="/archives">Archives</a>
+                 </li> 
+                 
+             </ul>
+         </nav>
+     </div>
+ </div><!-- end .header -->
+
+
+   <div class="content">
+      <div class="container">
+         <div class="post">
+  
+  <h1 class="postTitle">Create rails app using docker in 5 steps </h1>
+  <p class="meta">May 03, 2020 | about 2  minutes read</p>
+  <!-- <p class="meta">docker&nbsp;rails&nbsp;</p> -->
+  
+  <p class="intro"><span class="dropcap">I</span>f you want to create a new Rails application using docker, and keep it simple, these lines will help you.</p>
+
+<p>Why docker ? Why no rvm or rbenv ? In the past I used to work with rvm, helping me to manage multiple ruby / rails projects. I move to docker recently not to deploy an app to this beautiful cloud (<em>choose one you want</em>), but to create a developer environment. This is not the first purpose of docker, but it help a lot.</p>
+
+<p>I don’t need to install all of my ruby versions on my computer, not all postgresql / mysql / mariadb versions of all projects I work on, not all dependencies etc. that can conflicts between them. I can choose which unix to use (<em>it depend on images</em>) and get closer to production env. Docker is faster on Linux, i’m on Mac, it’s a little bit slower but it’s fine.</p>
+
+<p>So let’s create a new rails app using docker, and keep it really simple. We will take an example for a standard rails 6 app using a postgresql database.</p>
+
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+  <li>Docker</li>
+  <li>Docker-compose</li>
+  <li>Internet connection (<em>download docker’s images take time ..</em>)</li>
+</ul>
+
+<h2 id="5-steps">5 steps</h2>
+<ol>
+  <li>Clone this project (<em>it contains 3 files</em>) : <a href="https://github.com/Pobb/docker-rails" target="_blank">https://github.com/Pobb/docker-rails</a></li>
+  <li>docker-compose build</li>
+  <li>docker-compose run web rails new . –force –no-deps –database=postgresql –no-documentation</li>
+  <li>Edit config/database.yml and add :
+    <ul>
+      <li>host: db</li>
+      <li>username: “postgres”</li>
+      <li>password: “postgres”</li>
+    </ul>
+  </li>
+  <li>docker-compose up</li>
+</ol>
+
+<p>Visit <code class="highlighter-rouge">http://localhost:4000</code> and you are done !</p>
+
+<h2 id="some-explanations">Some explanations</h2>
+<p><strong>docker-compose build</strong> will create docker image on your computer using our <code class="highlighter-rouge">Dockerfile</code>. As you can see our Dockerfile is really simple. First we use official ruby image from docker hub . Next we just install some dev tools. Biggest part concern <strong>yarn</strong> : we use <code class="highlighter-rouge">Rails 6</code> in our example, needing webpack etc. We have to setup Yarn. Next we install rails using <code class="highlighter-rouge">gem install</code>command.</p>
+
+<p><strong>Create our rails app :</strong> in our docker-compose file we can see that we declare a <code class="highlighter-rouge">web</code> service. We will use image we just builded and launch our classical rails new command. We mention <strong>rails new .</strong> to create app in our current folder.</p>
+
+<p><strong>Edit config/database :</strong> In our docker-compose file we can see that our <code class="highlighter-rouge">db</code>service use postgres’s image. Here we want something really simple. By default, username and password are set to “postgres”. So mention it in your <code class="highlighter-rouge">database.yml</code> file.  Host is <strong>db</strong> : just mention it like it without quotes. It’s our <code class="highlighter-rouge">db</code> service name we choose in docker-compose file.</p>
+
+<h2 id="some-tips">Some tips</h2>
+<ul>
+  <li>We use volontary latest ruby version in our example (<em>first line of Dockerfile</em>), but I suggest you to fix your ruby version using appropriate docker image. You will find it on docker-hub website.</li>
+  <li>As for ruby, I suggest you to precise rails version when you “gem install rails”</li>
+  <li>You can create a docker folder and move our 3 files in (<em>careful to change path in Dockerfile and docker-compose.yml</em>)</li>
+  <li>I suggest you to use ENV variable to put your user and password into database.yml file.</li>
+</ul>
+
+<p><em><small>Sources <a href="https://github.com/Pobb/docker-rails" target="_blank">Github project</a></small></em></p>
+
+
+  <!-- POST NAVIGATION -->
+  <div class="postNav clearfix">
+     
+      <a class="prev" href="/docket-connect-container/"><span>&laquo;&nbsp;Docket : connect to your docker's container easily !</span>
+      
+    </a>
+      
+     
+  </div>
+</div>
+
+      </div>
+   </div><!-- end .content -->
+
+   <div class="footer">
+   <div class="container">
+      <p class="copy">&copy; 2020 - POB - Powered by <a href="http://jekyllrb.com">Jekyll</a></p>
+
+      <div class="footer-links"> 
+         <ul class="noList"> 
+            
+            
+            <li><a href="https://twitter.com/poblouin">
+                  <svg id="twitter" class="custom-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" style="height: 30px; width: 30px;"><circle class="outer-shape" cx="50" cy="50" r="48" style="opacity: 1;"></circle>
+                  <path class="inner-shape" style="opacity: 1;" transform="translate(25,25) scale(0.5)" d="M99.001,19.428c-3.606,1.608-7.48,2.695-11.547,3.184c4.15-2.503,7.338-6.466,8.841-11.189 c-3.885,2.318-8.187,4-12.768,4.908c-3.667-3.931-8.893-6.387-14.676-6.387c-11.104,0-20.107,9.054-20.107,20.223 c0,1.585,0.177,3.128,0.52,4.609c-16.71-0.845-31.525-8.895-41.442-21.131C6.092,16.633,5.1,20.107,5.1,23.813 c0,7.017,3.55,13.208,8.945,16.834c-3.296-0.104-6.397-1.014-9.106-2.529c-0.002,0.085-0.002,0.17-0.002,0.255 c0,9.799,6.931,17.972,16.129,19.831c-1.688,0.463-3.463,0.71-5.297,0.71c-1.296,0-2.555-0.127-3.783-0.363 c2.559,8.034,9.984,13.882,18.782,14.045c-6.881,5.424-15.551,8.657-24.971,8.657c-1.623,0-3.223-0.096-4.796-0.282 c8.898,5.738,19.467,9.087,30.82,9.087c36.982,0,57.206-30.817,57.206-57.543c0-0.877-0.02-1.748-0.059-2.617 C92.896,27.045,96.305,23.482,99.001,19.428z"></path>
+                  </svg>
+            </a></li>
+            
+             
+            
+         </ul>
+      </div>
+   </div>
+</div><!-- end .footer -->
+
+
+   <!-- Add jQuery and other scripts -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src=""><\/script>')</script>
+<script src="/assets/js/dropcap.min.js"></script>
+<script src="/assets/js/responsive-nav.min.js"></script>
+<script src="/assets/js/scripts.js"></script>
+
+
+</body>
+
+</html>
