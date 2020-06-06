@@ -6,7 +6,7 @@
   "display" : "fullscreen",
   "start_url" : "https://pobb.github.io/",
   "short_name" : "Pob's corner",
-  "theme_color" : "transparent",
+  "theme_color" : "#dc1e14",
   "description" : "Another tech blog",
   "orientation" : "any",
   "background_color" : "#dc1e14",
