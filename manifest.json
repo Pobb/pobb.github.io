@@ -1,11 +1,11 @@
 {
   "dir" : "ltr",
   "lang" : "English",
-  "name" : "[ Pob's corner ]",
+  "name" : "Pob's corner",
   "scope" : "/",
   "display" : "fullscreen",
   "start_url" : "https://pobb.github.io/",
-  "short_name" : "[ Pob's corner ] ",
+  "short_name" : "Pob's corner",
   "theme_color" : "transparent",
   "description" : "Another tech blog",
   "orientation" : "any",
