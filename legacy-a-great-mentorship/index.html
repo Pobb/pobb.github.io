@@ -61,10 +61,29 @@
     <link rel="canonical" href="https://dev.to/pobb/legacy-a-great-mentorship-for-dev-3688"/>
     
 
+    <link rel='manifest' href='/manifest.json'>
+
     <!-- Modernizr -->
     <script src="/assets/js/modernizr.custom.15390.js" type="text/javascript"></script>
 
     
+
+    <script type="text/javascript">
+      if ("serviceWorker" in navigator) {
+        if (navigator.serviceWorker.controller) {
+          console.log("An active service worker found, no need to register");
+        } else {
+          // Register the service worker
+          navigator.serviceWorker
+            .register("/serviceworker.js", {
+              scope: "./"
+            })
+            .then(function (reg) {
+              console.log("Service worker has been registered for scope: " + reg.scope);
+            });
+        }
+      }
+    </script>
 </head>
 
 
@@ -108,7 +127,7 @@
 
 <p><img src="/assets/img/legacy.jpg" alt="Legacy : don't blame it" /></p>
 
-<p>I want to talk about <code class="highlighter-rouge">human legacy</code> when nobody don’t know how this feature works because “<em>it was developed a long time ago by a guy who left the company</em>”. And of course about <code class="highlighter-rouge">technical legacy</code> : a language, technology, framework that is out of date or just dead, source code with no structuring or design strategy, no documentation, no tests. Legacy is everywhere, in each project or system, there is a part of legacy. You can’t fight this, but you have to deal with it !</p>
+<p>I want to talk about <code class="language-plaintext highlighter-rouge">human legacy</code> when nobody don’t know how this feature works because “<em>it was developed a long time ago by a guy who left the company</em>”. And of course about <code class="language-plaintext highlighter-rouge">technical legacy</code> : a language, technology, framework that is out of date or just dead, source code with no structuring or design strategy, no documentation, no tests. Legacy is everywhere, in each project or system, there is a part of legacy. You can’t fight this, but you have to deal with it !</p>
 
 <h2 id="dont-judge-too-fast-">Don’t judge too fast ….</h2>
 
@@ -116,15 +135,15 @@
 
 <h2 id="nobody-is-perfect">Nobody is perfect</h2>
 
-<p><strong>We all do mistakes</strong> ! Yes even if you are a <code class="highlighter-rouge">100x engineer</code>, you do mistakes. Because we become stronger and stronger learning during all our career. We start younger and become senior. There is a difference between a developer alone and a developer in a team. Sometimes a “POC” become a project but you didn’t know at first, and you leave. The developer behind you will start with a “legacy” (<em>don’t tell me that all of your POCs are healthy ^^</em>).</p>
+<p><strong>We all do mistakes</strong> ! Yes even if you are a <code class="language-plaintext highlighter-rouge">100x engineer</code>, you do mistakes. Because we become stronger and stronger learning during all our career. We start younger and become senior. There is a difference between a developer alone and a developer in a team. Sometimes a “POC” become a project but you didn’t know at first, and you leave. The developer behind you will start with a “legacy” (<em>don’t tell me that all of your POCs are healthy ^^</em>).</p>
 
 <h2 id="analyse-and-secure">Analyse and secure</h2>
 
-<p>First of all : analyse situation. Which <code class="highlighter-rouge">environments</code> are available ? We got production, is there any staging environment ? Can we simply re-start project in <code class="highlighter-rouge">local</code> ? Is there any <code class="highlighter-rouge">CI/CD</code> process to put code in production ? Are there any <code class="highlighter-rouge">tests</code> that I can rely on ? Is code on <code class="highlighter-rouge">git</code> or <code class="highlighter-rouge">svn</code> plateform ? Do you get <code class="highlighter-rouge">access</code> to servers or tools or <code class="highlighter-rouge">APIs</code> ? Can we found <code class="highlighter-rouge">logs</code> somewhere ? Is there any <code class="highlighter-rouge">backlog</code> ?</p>
+<p>First of all : analyse situation. Which <code class="language-plaintext highlighter-rouge">environments</code> are available ? We got production, is there any staging environment ? Can we simply re-start project in <code class="language-plaintext highlighter-rouge">local</code> ? Is there any <code class="language-plaintext highlighter-rouge">CI/CD</code> process to put code in production ? Are there any <code class="language-plaintext highlighter-rouge">tests</code> that I can rely on ? Is code on <code class="language-plaintext highlighter-rouge">git</code> or <code class="language-plaintext highlighter-rouge">svn</code> plateform ? Do you get <code class="language-plaintext highlighter-rouge">access</code> to servers or tools or <code class="language-plaintext highlighter-rouge">APIs</code> ? Can we found <code class="language-plaintext highlighter-rouge">logs</code> somewhere ? Is there any <code class="language-plaintext highlighter-rouge">backlog</code> ?</p>
 
 <p>And secure it as possible. Sometimes you won’t get enough time to do all these shortcomings. You will have to choose and vote which one is needed. If project must go to live, <strong>GIT</strong> is the first thing we use to settle.</p>
 
-<p><strong>Tests</strong> just come next : how can we secure our refactoring without killing something ? Create tests, start as simple you can. A little but brillant guy always learned me : “<strong>1 test &gt; 0 test</strong>”. Sometimes you won’t have suffisant skill to put tests in this from scratch project you don’t know. Have you ever heard and tried <code class="highlighter-rouge">Golden Master Testing</code> ? This is so nice.</p>
+<p><strong>Tests</strong> just come next : how can we secure our refactoring without killing something ? Create tests, start as simple you can. A little but brillant guy always learned me : “<strong>1 test &gt; 0 test</strong>”. Sometimes you won’t have suffisant skill to put tests in this from scratch project you don’t know. Have you ever heard and tried <code class="language-plaintext highlighter-rouge">Golden Master Testing</code> ? This is so nice.</p>
 
 <h2 id="read-and-learn">Read and learn</h2>
 

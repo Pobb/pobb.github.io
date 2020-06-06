@@ -61,10 +61,29 @@
     <link rel="canonical" href="https://www.sois-net.fr/wicked_pdf-3-le-saut-de-page-et-son-inverse/"/>
     
 
+    <link rel='manifest' href='/manifest.json'>
+
     <!-- Modernizr -->
     <script src="/assets/js/modernizr.custom.15390.js" type="text/javascript"></script>
 
     
+
+    <script type="text/javascript">
+      if ("serviceWorker" in navigator) {
+        if (navigator.serviceWorker.controller) {
+          console.log("An active service worker found, no need to register");
+        } else {
+          // Register the service worker
+          navigator.serviceWorker
+            .register("/serviceworker.js", {
+              scope: "./"
+            })
+            .then(function (reg) {
+              console.log("Service worker has been registered for scope: " + reg.scope);
+            });
+        }
+      }
+    </script>
 </head>
 
 

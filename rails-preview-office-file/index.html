@@ -61,10 +61,29 @@
     <link rel="canonical" href="https://dev.to/pobb/rails-how-to-preview-office-files-11go"/>
     
 
+    <link rel='manifest' href='/manifest.json'>
+
     <!-- Modernizr -->
     <script src="/assets/js/modernizr.custom.15390.js" type="text/javascript"></script>
 
     
+
+    <script type="text/javascript">
+      if ("serviceWorker" in navigator) {
+        if (navigator.serviceWorker.controller) {
+          console.log("An active service worker found, no need to register");
+        } else {
+          // Register the service worker
+          navigator.serviceWorker
+            .register("/serviceworker.js", {
+              scope: "./"
+            })
+            .then(function (reg) {
+              console.log("Service worker has been registered for scope: " + reg.scope);
+            });
+        }
+      }
+    </script>
 </head>
 
 
@@ -114,15 +133,15 @@
 
 <p>To get this tool, just install libreoffice on your server using :</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt-get install libreoffice -qq
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt-get install libreoffice -qq
 </code></pre></div></div>
 
 <p>A little look to the doc and you can see two options we will use :</p>
 
-<p><code class="highlighter-rouge">--convert-to</code> : allow us to convert a file from our extension to pdf
-<code class="highlighter-rouge">--headless</code> : it ignore GUI environment</p>
+<p><code class="language-plaintext highlighter-rouge">--convert-to</code> : allow us to convert a file from our extension to pdf
+<code class="language-plaintext highlighter-rouge">--headless</code> : it ignore GUI environment</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>libreoffice --headless --convert-to pdf my_file.docx
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>libreoffice --headless --convert-to pdf my_file.docx
 </code></pre></div></div>
 
 <h2 id="rails--there-is-a-gem-for-that">Rails : there is a gem for that</h2>

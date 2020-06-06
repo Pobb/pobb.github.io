@@ -61,10 +61,29 @@
     <link rel="canonical" href="http://0.0.0.0:4000/create-new-rails-app-using-docker/">
     
 
+    <link rel='manifest' href='/manifest.json'>
+
     <!-- Modernizr -->
     <script src="/assets/js/modernizr.custom.15390.js" type="text/javascript"></script>
 
     
+
+    <script type="text/javascript">
+      if ("serviceWorker" in navigator) {
+        if (navigator.serviceWorker.controller) {
+          console.log("An active service worker found, no need to register");
+        } else {
+          // Register the service worker
+          navigator.serviceWorker
+            .register("/serviceworker.js", {
+              scope: "./"
+            })
+            .then(function (reg) {
+              console.log("Service worker has been registered for scope: " + reg.scope);
+            });
+        }
+      }
+    </script>
 </head>
 
 
@@ -132,14 +151,14 @@
   <li>docker-compose up</li>
 </ol>
 
-<p>Visit <code class="highlighter-rouge">http://localhost:4000</code> and you are done !</p>
+<p>Visit <code class="language-plaintext highlighter-rouge">http://localhost:4000</code> and you are done !</p>
 
 <h2 id="some-explanations">Some explanations</h2>
-<p><strong>docker-compose build</strong> will create docker image on your computer using our <code class="highlighter-rouge">Dockerfile</code>. As you can see our Dockerfile is really simple. First we use official ruby image from docker hub . Next we just install some dev tools. Biggest part concern <strong>yarn</strong> : we use <code class="highlighter-rouge">Rails 6</code> in our example, needing webpack etc. We have to setup Yarn. Next we install rails using <code class="highlighter-rouge">gem install</code>command.</p>
+<p><strong>docker-compose build</strong> will create docker image on your computer using our <code class="language-plaintext highlighter-rouge">Dockerfile</code>. As you can see our Dockerfile is really simple. First we use official ruby image from docker hub . Next we just install some dev tools. Biggest part concern <strong>yarn</strong> : we use <code class="language-plaintext highlighter-rouge">Rails 6</code> in our example, needing webpack etc. We have to setup Yarn. Next we install rails using <code class="language-plaintext highlighter-rouge">gem install</code>command.</p>
 
-<p><strong>Create our rails app :</strong> in our docker-compose file we can see that we declare a <code class="highlighter-rouge">web</code> service. We will use image we just builded and launch our classical rails new command. We mention <strong>rails new .</strong> to create app in our current folder.</p>
+<p><strong>Create our rails app :</strong> in our docker-compose file we can see that we declare a <code class="language-plaintext highlighter-rouge">web</code> service. We will use image we just builded and launch our classical rails new command. We mention <strong>rails new .</strong> to create app in our current folder.</p>
 
-<p><strong>Edit config/database :</strong> In our docker-compose file we can see that our <code class="highlighter-rouge">db</code>service use postgres’s image. Here we want something really simple. By default, username and password are set to “postgres”. So mention it in your <code class="highlighter-rouge">database.yml</code> file.  Host is <strong>db</strong> : just mention it like it without quotes. It’s our <code class="highlighter-rouge">db</code> service name we choose in docker-compose file.</p>
+<p><strong>Edit config/database :</strong> In our docker-compose file we can see that our <code class="language-plaintext highlighter-rouge">db</code>service use postgres’s image. Here we want something really simple. By default, username and password are set to “postgres”. So mention it in your <code class="language-plaintext highlighter-rouge">database.yml</code> file.  Host is <strong>db</strong> : just mention it like it without quotes. It’s our <code class="language-plaintext highlighter-rouge">db</code> service name we choose in docker-compose file.</p>
 
 <h2 id="some-tips">Some tips</h2>
 <ul>
